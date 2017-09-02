@@ -1,0 +1,11 @@
+@using Cake.Graph
+@model GraphSettings
+<link rel="stylesheet" href="@Model.CssPath">
+
+<div>
+    <select id="selectTask"></select>
+</div>
+<div id="task-graph" class="task-graph"></div>
+
+<script src='@Model.CytoscapeJsPath'></script>
+<script src="@Model.JsPath"></script>

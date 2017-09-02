@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Cake.Graph</id>
+    <title>Cake.Graph</title>
+    <authors>Warren Bates</authors>
+    <owners>Warren Bates</owners>
+    <licenseUrl>https://github.com/wozzo/Cake.Graph/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/wozzo/Cake.Graph</projectUrl>
+    <iconUrl>https://cdn.rawgit.com/cake-contrib/graphics/a5cf0f881c390650144b2243ae551d5b9f836196/png/cake-contrib-medium.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <summary>Adds tool to Cake for displaying Task dependencies</summary>
+    <description>An alias for Cake to help with displaying Task dependencies</description>
+    <tags>Cake Script Build Graph Nodes Dependencies Tasks</tags>
+  </metadata>
+  <files>
+    <file src="Cake.Graph.xml" target="lib\net45" />
+    <file src="Cake.Graph.dll" target="lib\net45" />
+  </files>
+</package>
