@@ -63,14 +63,14 @@
     <Compile Include="SolutionInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Content\Wyam\tasks.cshtml" />
+    <EmbeddedResource Include="Content\Wyam\tasks.cshtml.razor" />
     <None Include="packages.config" />
     <None Include="Scripts\jquery-3.1.1.min.map" />
     <None Include="Scripts\jquery-3.1.1.slim.min.map" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Content\tasks.css" />
-    <EmbeddedResource Include="Scripts\task-graph.js" />
+    <EmbeddedResource Include="Scripts\task-graph.js.razor" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Scripts\cytoscape.js" />
@@ -79,7 +79,7 @@
     <EmbeddedResource Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
-    <EmbeddedResource Include="Content\tasks.cshtml" />
+    <EmbeddedResource Include="Content\tasks.cshtml.razor" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

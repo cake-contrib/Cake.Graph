@@ -117,7 +117,7 @@ namespace Cake.Graph
             var cssFilePath = Path.Combine(settings.OutputPath, settings.CssPath);
             var htmlOutputPath = Path.Combine(settings.OutputPath, $"{settings.MainPageName}.{(settings.IsWyam ? "cshtml" : "html")}");
 
-            var htmlResource = $"Cake.Graph.Content.{(settings.IsWyam ? "Wyam." : "")}tasks.cshtml";
+            var htmlResource = $"Cake.Graph.Content.{(settings.IsWyam ? "Wyam." : "")}tasks.cshtml.razor";
 
             if (!settings.IsWyam)
                 WriteResourceToFile(GraphConstants.JQueryResource, jQueryFilePath);
