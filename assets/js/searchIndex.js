@@ -34,8 +34,8 @@ var searchModule = function() {
 
     a({
         id:0,
-        title:"GraphRunner",
-        content:"GraphRunner",
+        title:"GraphAliases",
+        content:"GraphAliases",
         description:'',
         tags:''
     });
@@ -50,14 +50,6 @@ var searchModule = function() {
 
     a({
         id:2,
-        title:"Node",
-        content:"Node",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:3,
         title:"GraphSettings",
         content:"GraphSettings",
         description:'',
@@ -65,7 +57,7 @@ var searchModule = function() {
     });
 
     a({
-        id:4,
+        id:3,
         title:"GraphTemplate",
         content:"GraphTemplate",
         description:'',
@@ -73,28 +65,30 @@ var searchModule = function() {
     });
 
     a({
+        id:4,
+        title:"GraphRunner",
+        content:"GraphRunner",
+        description:'',
+        tags:''
+    });
+
+    a({
         id:5,
-        title:"GraphAliases",
-        content:"GraphAliases",
+        title:"Node",
+        content:"Node",
         description:'',
         tags:''
     });
 
     y({
-        url:'/Cake.Graph/Cake.Graph/api/Cake.Graph/GraphRunner',
-        title:"GraphRunner",
+        url:'/Cake.Graph/Cake.Graph/api/Cake.Graph/GraphAliases',
+        title:"GraphAliases",
         description:""
     });
 
     y({
         url:'/Cake.Graph/Cake.Graph/api/Cake.Graph/NodeData',
         title:"Node.NodeData",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Graph/Cake.Graph/api/Cake.Graph/Node',
-        title:"Node",
         description:""
     });
 
@@ -111,8 +105,14 @@ var searchModule = function() {
     });
 
     y({
-        url:'/Cake.Graph/Cake.Graph/api/Cake.Graph/GraphAliases',
-        title:"GraphAliases",
+        url:'/Cake.Graph/Cake.Graph/api/Cake.Graph/GraphRunner',
+        title:"GraphRunner",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Graph/Cake.Graph/api/Cake.Graph/Node',
+        title:"Node",
         description:""
     });
 
