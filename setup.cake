@@ -1,6 +1,6 @@
 #load nuget:https://www.myget.org/F/cake-contrib/api/v2?package=Cake.Recipe&prereleases
-#reference "D:\wozzo\Documents\Visual Studio 2017\Projects\Cake.Graph\src\Cake.Graph\bin\Debug\Cake.Graph.dll"
 #load "docs-prep.cake"
+#load "tasks-graph.cake"
 
 Environment.SetVariableNames();
 
@@ -20,19 +20,5 @@ ToolSettings.SetToolSettings(context: Context,
                             testCoverageFilter: "+[*]* -[xunit.*]* -[Cake.Core]* -[Cake.Testing]* -[*.Tests]* ",
                             testCoverageExcludeByAttribute: "*.ExcludeFromCodeCoverage*",
                             testCoverageExcludeByFile: "*/*Designer.cs;*/*.g.cs;*/*.g.i.cs");
-
-Task("Graph").Does(() => {
-    Graph(Tasks)
-        .Deploy(settings => {
-            settings.IsWyam = true;
-        });
-});
-
-BuildParameters.Tasks.PublishDocumentationTask
-    .IsDependentOn("Graph");
-BuildParameters.Tasks.PreviewDocumentationTask
-    .IsDependentOn("Graph");
-BuildParameters.Tasks.ForcePublishDocumentationTask
-    .IsDependentOn("Graph");
 
 Build.Run();
