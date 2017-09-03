@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+	<channel>
+		<title>Cake.Graph</title>
+		<link>http://wozzo.github.io/Cake.Graph</link>
+		<description />
+		<copyright>2017</copyright>
+		<pubDate>Sun, 03 Sep 2017 15:13:56 GMT</pubDate>
+		<lastBuildDate>Sun, 03 Sep 2017 15:13:56 GMT</lastBuildDate>
+		<item>
+			<title>New Release V0.1.0</title>
+			<link>http://wozzo.github.io/Cake.Graph/blog/new-release-v0.1.0</link>
+			<description>&lt;p&gt;First release of Cake.Graph&lt;/p&gt;</description>
+			<author>Warren Bates</author>
+			<guid>http://wozzo.github.io/Cake.Graph/blog/new-release-v0.1.0</guid>
+			<pubDate>Sat, 02 Sep 2017 00:00:00 GMT</pubDate>
+		</item>
+	</channel>
+</rss>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<link rel="self" href="http://wozzo.github.io/Cake.Graph" />
+	<id>http://wozzo.github.io/Cake.Graph</id>
+	<title>Cake.Graph</title>
+	<rights>2017</rights>
+	<updated>2017-09-03T15:13:56Z</updated>
+	<entry>
+		<author>
+			<name>Warren Bates</name>
+		</author>
+		<link href="http://wozzo.github.io/Cake.Graph/blog/new-release-v0.1.0" />
+		<id>http://wozzo.github.io/Cake.Graph/blog/new-release-v0.1.0</id>
+		<title>New Release V0.1.0</title>
+		<updated>2017-09-02T00:00:00Z</updated>
+		<summary>&lt;p&gt;First release of Cake.Graph&lt;/p&gt;</summary>
+	</entry>
+</feed>
