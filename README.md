@@ -6,7 +6,7 @@
 
 Branch | Status
 --- | ---
-Master | [![Build status](https://ci.appveyor.com/api/projects/status/XXX/branch/master?svg=true)](https://ci.appveyor.com/project/cakecontrib/cake-graph/branch/master)
+Master | [![Build status](https://ci.appveyor.com/api/projects/status/nat9vag2u35jt4yj?svg=true)](https://ci.appveyor.com/project/cakecontrib/cake-graph/branch/master)
 Develop | [![Build status](https://ci.appveyor.com/api/projects/status/XXX/branch/develop?svg=true)](https://ci.appveyor.com/project/cakecontrib/cake-graph/branch/develop)
 
 ### Nuget
@@ -17,16 +17,7 @@ Develop | [![Build status](https://ci.appveyor.com/api/projects/status/XXX/branc
 
 ## Usage
 
-```c#
-    #addin "Cake.Graph"
-
-    Task("Graph")
-        .Does(() => {
-            Graph(Tasks).Deploy(s => {
-                s.IsWyam = true;
-            });
-        });
-```
+See [Cake.Graph Usage](https://cake-contrib.github.io/Cake.Graph/docs/usage) for details on how to setup and use Cake.Graph
 
 ## Scope
 The purpose of this project is to provide a means of easily viewing build tasks defined in Cake scripts and their dependencies.
