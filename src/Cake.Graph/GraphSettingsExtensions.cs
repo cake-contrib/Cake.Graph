@@ -11,7 +11,7 @@ namespace Cake.Graph
         /// <param name="settings"></param>
         /// <param name="useWyam"></param>
         /// <returns></returns>
-        public static GraphSettings UseWyam(this GraphSettings settings, bool useWyam)
+        public static GraphSettings UseWyam(this GraphSettings settings, bool useWyam = true)
         {
             settings.IsWyam = useWyam;
             return settings;

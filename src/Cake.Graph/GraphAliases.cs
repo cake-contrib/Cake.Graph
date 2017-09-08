@@ -16,13 +16,37 @@ namespace Cake.Graph
         /// <param name="tasks"></param>
         /// <returns></returns>
         /// <example>
-        /// <para>Get GraphRunner for running further commands</para>
+        /// <para>Deploy both web files and task nodeset files</para>
         /// <code>
         /// <![CDATA[
         /// Task("Graph")
         ///     .Does(() =>
         /// {
-        ///     Graph(Tasks).Deploy(s => s.OutputPath = "/output");
+        ///     Graph(Tasks).Deploy(s => s.SetOutputPath("output"));
+        /// });
+        /// ]]>
+        /// </code>
+        /// </example>
+        /// <example>
+        /// <para>Generate the nodesets files for use with deployed web files</para>
+        /// <code>
+        /// <![CDATA[
+        /// Task("Graph")
+        ///     .Does(() =>
+        /// {
+        ///     Graph(Tasks).GenerateNodeSets(s => s.SetOutputPath("output"));
+        /// });
+        /// ]]>
+        /// </code>
+        /// </example>
+        /// <example>
+        /// <para>Deploy the web files needed for Cake.Graph to display the graphs</para>
+        /// <code>
+        /// <![CDATA[
+        /// Task("Graph")
+        ///     .Does(() =>
+        /// {
+        ///     Graph(Tasks).DeployWebFiles(s => s.SetOutputPath("output"));
         /// });
         /// ]]>
         /// </code>

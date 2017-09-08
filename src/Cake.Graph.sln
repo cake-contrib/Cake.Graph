@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		SolutionInfo.cs = SolutionInfo.cs
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Graph.Tests", "Cake.Graph.Tests\Cake.Graph.Tests.csproj", "{2104107F-0939-4947-83B2-B36E41012939}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +26,10 @@ Global
 		{DDF7DB06-136F-4FB0-B6DB-01B3AB9A8C37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDF7DB06-136F-4FB0-B6DB-01B3AB9A8C37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDF7DB06-136F-4FB0-B6DB-01B3AB9A8C37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2104107F-0939-4947-83B2-B36E41012939}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2104107F-0939-4947-83B2-B36E41012939}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2104107F-0939-4947-83B2-B36E41012939}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2104107F-0939-4947-83B2-B36E41012939}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
