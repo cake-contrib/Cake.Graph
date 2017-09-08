@@ -6,8 +6,8 @@
 
 Branch | Status
 --- | ---
-Master | [![Build status](https://ci.appveyor.com/api/projects/status/nat9vag2u35jt4yj?svg=true)](https://ci.appveyor.com/project/cakecontrib/cake-graph/branch/master)
-Develop | [![Build status](https://ci.appveyor.com/api/projects/status/XXX/branch/develop?svg=true)](https://ci.appveyor.com/project/cakecontrib/cake-graph/branch/develop)
+Master | [![Build status](https://ci.appveyor.com/api/projects/status/nat9vag2u35jt4yj/branch/master?svg=true)](https://ci.appveyor.com/project/cakecontrib/cake-graph/branch/master)
+Develop | [![Build status](https://ci.appveyor.com/api/projects/status/nat9vag2u35jt4yj/branch/develop?svg=true)](https://ci.appveyor.com/project/cakecontrib/cake-graph/branch/develop)
 
 ### Nuget
 [![NuGet](https://img.shields.io/nuget/v/Cake.Graph.svg)](https://www.nuget.org/packages/Cake.Graph/) 
