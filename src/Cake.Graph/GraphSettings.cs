@@ -40,6 +40,6 @@ namespace Cake.Graph
         /// <summary>
         /// Name of the file to store the list of all the tasks in
         /// </summary>
-        public string TaskListFileName { get; set; } = "_tasklist.json";
+        public string TaskListFileName { get; set; } = "tasklist.json";
     }
 }

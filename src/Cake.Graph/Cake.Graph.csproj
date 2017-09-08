@@ -75,6 +75,7 @@
     <Compile Include="GraphAliases.cs" />
     <Compile Include="GraphConstants.cs" />
     <Compile Include="GraphSettings.cs" />
+    <Compile Include="GraphSettingsExtensions.cs" />
     <Compile Include="GraphTemplate.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="GraphRunner.cs" />
