@@ -8,9 +8,9 @@ BuildParameters.SetParameters(context: Context,
                             buildSystem: BuildSystem,
                             sourceDirectoryPath: "./src",
                             title: "Cake.Graph",
-                            repositoryOwner: "wozzo",
+                            repositoryOwner: "cake-contrib",
                             repositoryName: "Cake.Graph",
-                            appVeyorAccountName: "wozzo");
+                            appVeyorAccountName: "cakecontrib");
 
 BuildParameters.PrintParameters(Context);
 
