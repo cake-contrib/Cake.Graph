@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using Cake.Core;
+using Cake.Core.Diagnostics;
 using Newtonsoft.Json;
 using RazorEngine;
 using RazorEngine.Configuration;
@@ -170,8 +172,13 @@ namespace Cake.Graph
         {
             context.Log.Write(Verbosity.Normal, LogLevel.Information, $"Creating node set for {task.Name} dependencies");
             var nodes = GetTaskGraphNodes(task);
+
+            foreach (var node in nodes)
+                context.Log.Debug(Verbosity.Diagnostic, $"Node: {node.Data.Id}, Source: {node.Data.Source}, Target: {node.Data.Target}");
+
             var filePath = Path.Combine(settings.OutputPath, settings.NodeSetsPath, $"{task.Name}.json");
             context.Log.Write(Verbosity.Diagnostic, LogLevel.Information, $"Writing node set file for {task.Name} dependencies to {filePath}");
+
             using (var file = File.CreateText(filePath))
             {
                 var serializer = new JsonSerializer();
@@ -199,15 +206,17 @@ namespace Cake.Graph
             while (stack.Count > 0)
             {
                 var currentNode = stack.Pop();
-
+                context.Log.Write(Verbosity.Diagnostic, LogLevel.Debug, $"Creating Node for {currentNode.Name} which has {currentNode.Dependencies.Count} dependencies");
                 nodes.Add(new Node(currentNode.Name));
 
                 foreach (var dependencyName in currentNode.Dependencies)
                 {
                     var dependencyTask = GetTask(dependencyName);
+                    context.Log.Write(Verbosity.Diagnostic, LogLevel.Debug, $"Found dependent task {dependencyTask.Name} with {dependencyTask.Dependencies.Count} dependencies");
                     stack.Push(dependencyTask);
 
-                    nodes.Add(new Node(Guid.NewGuid().ToString(), currentNode.Name, dependencyName));
+                    context.Log.Write(Verbosity.Diagnostic, LogLevel.Debug, $"Creating Edge from {currentNode.Name} to {dependencyTask.Name}");
+                    nodes.Add(new Node(Guid.NewGuid().ToString(), currentNode.Name, dependencyTask.Name));
                 }
             }
 
