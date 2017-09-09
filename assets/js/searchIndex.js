@@ -34,6 +34,14 @@ var searchModule = function() {
 
     a({
         id:0,
+        title:"Node",
+        content:"Node",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:1,
         title:"GraphAliases",
         content:"GraphAliases",
         description:'',
@@ -41,23 +49,7 @@ var searchModule = function() {
     });
 
     a({
-        id:1,
-        title:"Node NodeData",
-        content:"Node NodeData",
-        description:'',
-        tags:''
-    });
-
-    a({
         id:2,
-        title:"GraphSettings",
-        content:"GraphSettings",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:3,
         title:"GraphTemplate",
         content:"GraphTemplate",
         description:'',
@@ -65,7 +57,23 @@ var searchModule = function() {
     });
 
     a({
+        id:3,
+        title:"GraphSettings",
+        content:"GraphSettings",
+        description:'',
+        tags:''
+    });
+
+    a({
         id:4,
+        title:"GraphSettingsExtensions",
+        content:"GraphSettingsExtensions",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:5,
         title:"GraphRunner",
         content:"GraphRunner",
         description:'',
@@ -73,28 +81,22 @@ var searchModule = function() {
     });
 
     a({
-        id:5,
-        title:"Node",
-        content:"Node",
+        id:6,
+        title:"Node NodeData",
+        content:"Node NodeData",
         description:'',
         tags:''
     });
 
     y({
+        url:'/Cake.Graph/Cake.Graph/api/Cake.Graph/Node',
+        title:"Node",
+        description:""
+    });
+
+    y({
         url:'/Cake.Graph/Cake.Graph/api/Cake.Graph/GraphAliases',
         title:"GraphAliases",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Graph/Cake.Graph/api/Cake.Graph/NodeData',
-        title:"Node.NodeData",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Graph/Cake.Graph/api/Cake.Graph/GraphSettings',
-        title:"GraphSettings",
         description:""
     });
 
@@ -105,14 +107,26 @@ var searchModule = function() {
     });
 
     y({
+        url:'/Cake.Graph/Cake.Graph/api/Cake.Graph/GraphSettings',
+        title:"GraphSettings",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Graph/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions',
+        title:"GraphSettingsExtensions",
+        description:""
+    });
+
+    y({
         url:'/Cake.Graph/Cake.Graph/api/Cake.Graph/GraphRunner',
         title:"GraphRunner",
         description:""
     });
 
     y({
-        url:'/Cake.Graph/Cake.Graph/api/Cake.Graph/Node',
-        title:"Node",
+        url:'/Cake.Graph/Cake.Graph/api/Cake.Graph/NodeData',
+        title:"Node.NodeData",
         description:""
     });
 

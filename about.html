@@ -70,7 +70,7 @@
             <aside class="main-sidebar hidden">
                 <section class="infobar" data-spy="affix" data-offset-top="60" data-offset-bottom="200"> 
                     	
-        <div><p><a href="https://github.com/wozzo/Cake.Graph/tree/develop/docs/input/about.md"><i class="fa fa-pencil-square" aria-hidden="true"></i> Edit Content</a></p></div>
+        <div><p><a href="https://github.com/cake-contrib/Cake.Graph/tree/develop/docs/input/about.md"><i class="fa fa-pencil-square" aria-hidden="true"></i> Edit Content</a></p></div>
     <div id="infobar-headings"><h6>On This Page</h6><p><a href="#cake.graph">Cake.Graph</a></p>
 <hr class="infobar-hidden">
 </div>
@@ -109,11 +109,11 @@
 <tbody>
 <tr>
 <td>Master</td>
-<td><a href="https://ci.appveyor.com/project/cakecontrib/cake-graph/branch/master"><img src="https://ci.appveyor.com/api/projects/status/XXX/branch/master?svg=true" class="img-fluid" alt="Build status"></a></td>
+<td><a href="https://ci.appveyor.com/project/cakecontrib/cake-graph/branch/master"><img src="https://ci.appveyor.com/api/projects/status/nat9vag2u35jt4yj/branch/master?svg=true" class="img-fluid" alt="Build status"></a></td>
 </tr>
 <tr>
 <td>Develop</td>
-<td><a href="https://ci.appveyor.com/project/cakecontrib/cake-graph/branch/develop"><img src="https://ci.appveyor.com/api/projects/status/XXX/branch/develop?svg=true" class="img-fluid" alt="Build status"></a></td>
+<td><a href="https://ci.appveyor.com/project/cakecontrib/cake-graph/branch/develop"><img src="https://ci.appveyor.com/api/projects/status/nat9vag2u35jt4yj/branch/develop?svg=true" class="img-fluid" alt="Build status"></a></td>
 </tr>
 </tbody>
 </table>
@@ -122,17 +122,19 @@
 <h3 id="licence">Licence</h3>
 <p><a href="http://cake-contrib.mit-license.org"><img src="http://img.shields.io/:license-mit-blue.svg" class="img-fluid" alt="License"></a></p>
 <h2 id="usage">Usage</h2>
-<pre><code class="language-c#">    #addin "Cake.Graph"
-
-    Task("Graph")
-        .Does(() =&gt; {
-            Graph(Tasks).Deploy(s =&gt; {
-                s.IsWyam = true;
-            });
-        });
-</code></pre>
+<p>See <a href="https://cake-contrib.github.io/Cake.Graph/docs/usage">Cake.Graph Usage</a> for details on how to setup and use Cake.Graph</p>
 <h2 id="scope">Scope</h2>
 <p>The purpose of this project is to provide a means of easily viewing build tasks defined in Cake scripts and their dependencies.</p>
+<h2 id="roadmap">Roadmap</h2>
+<p>Next steps for the project</p>
+<ul>
+<li>Add more unit tests</li>
+<li>Add to Cake.Recipe</li>
+<li>Show selected Task description on the graph page</li>
+<li>Allow the graph to scale based on number of dependencies/complexity</li>
+<li>Add a different view which displays a list (as opposed to graph) of tasks in the order cake would run them</li>
+</ul>
+<p>Any other ideas/contributions are welcome.</p>
 
 	</section>
                 

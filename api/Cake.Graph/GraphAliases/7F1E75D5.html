@@ -181,11 +181,27 @@ public static GraphRunner Graph(this ICakeContext context, IReadOnlyList&lt;Cake
 
 	<h1 id="Examples">Examples</h1>
 	<div>
-    <p>Get GraphRunner for running further commands</p>
+    <p>Deploy both web files and task nodeset files</p>
     <pre><code class="cs">Task("Graph")
     .Does(() =&gt;
 {
-    Graph(Tasks).Deploy(s =&gt; s.OutputPath = "/output");
+    Graph(Tasks).Deploy(s =&gt; s.SetOutputPath("output"));
+});</code></pre>
+    
+
+    <p>Generate the nodesets files for use with deployed web files</p>
+    <pre><code class="cs">Task("Graph")
+    .Does(() =&gt;
+{
+    Graph(Tasks).GenerateNodeSets(s =&gt; s.SetOutputPath("output"));
+});</code></pre>
+    
+
+    <p>Deploy the web files needed for Cake.Graph to display the graphs</p>
+    <pre><code class="cs">Task("Graph")
+    .Does(() =&gt;
+{
+    Graph(Tasks).DeployWebFiles(s =&gt; s.SetOutputPath("output"));
 });</code></pre>
     </div>
 

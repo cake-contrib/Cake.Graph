@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="/Cake.Graph/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.Graph/assets/img/favicon.ico" type="image/x-icon">
-        <title>Cake.Graph - Usage</title>
+        <title>Cake.Graph - API - GraphSettingsExtensions.UseWyam(GraphSettings, bool) Method</title>
         <link href="/Cake.Graph/assets/css/mermaid.css" rel="stylesheet">
         <link href="/Cake.Graph/assets/css/highlight.css" rel="stylesheet">
         <link href="/Cake.Graph/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
@@ -57,10 +57,10 @@
                     <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
                         <ul class="nav navbar-nav">                            
                                     <li><a href="/Cake.Graph/about">About Cake.Graph</a></li>
-        <li class="active"><a href="/Cake.Graph/docs">Docs</a></li>
+        <li><a href="/Cake.Graph/docs">Docs</a></li>
         <li><a href="/Cake.Graph/graph">Graph</a></li>
         <li><a href="/Cake.Graph/blog">Blog</a></li>
-        <li><a href="/Cake.Graph/api">API</a></li>
+        <li class="active"><a href="/Cake.Graph/api">API</a></li>
  
                         </ul>       
                     </div>
@@ -74,18 +74,76 @@
             <aside class="main-sidebar ">
                 <section class="infobar" data-spy="affix" data-offset-top="60" data-offset-bottom="200"> 
                     	
-        <div><p><a href="https://github.com/cake-contrib/Cake.Graph/tree/develop/docs/input/docs/usage.md"><i class="fa fa-pencil-square" aria-hidden="true"></i> Edit Content</a></p></div>
-    <div id="infobar-headings"><h6>On This Page</h6><p><a href="#deploy-cake.graph">Deploy Cake.Graph</a></p>
+	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Summary">Summary</a></p>
+<p><a href="#Syntax">Syntax</a></p>
+<p><a href="#Parameters">Parameters</a></p>
+<p><a href="#ReturnValue">Return Value</a></p>
 <hr class="infobar-hidden">
 </div>
 
                 </section>
                 <section class="sidebar">                    
-                    
+                    	
+	    <script src="/Cake.Graph/assets/js/lunr.min.js"></script>
+    <script src="/Cake.Graph/assets/js/searchIndex.js"></script>
+    <div class="sidebar-form">
+        <div class="input-group">
+            <input type="text" name="search" id="search" class="form-control" placeholder="Search Types...">
+            <span class="input-group-btn">
+                <button class="btn btn-flat"><i class="fa fa-search"></i></button>
+            </span>
+        </div>
+    </div>
+    <div id="search-results">
+    </div>
+    <script>
+        function runSearch(query){
+            $("#search-results").empty();			
+            if( query.length < 2 ){
+                return;
+            }			
+            var results = searchModule.search("*" + query + "*");
+            var listHtml = "<ul class='sidebar-menu'>";	
+            listHtml += "<li class='header'>Type Results</li>";	
+            if(results.length == 0 ){
+                listHtml += "<li>No results found</li>";
+            } else {					
+                for(var i = 0; i < results.length; ++i){
+                    var res = results[i];
+                    listHtml += "<li><a href='" + res.url + "'>" + res.title + "</a></li>";
+                }				
+            }
+            listHtml += "</ul>";				
+            $("#search-results").append(listHtml);
+        }
+
+        $(document).ready(function(){
+            $("#search").on('input propertychange paste', function() {
+                runSearch($("#search").val());
+            });
+        });
+    </script>
+	
+    <hr>
 
                     <ul class="sidebar-menu">
                         
-                <li class="selected"><a href="/Cake.Graph/docs/usage">Usage</a></li>
+			<li class="header">Namespace</li>
+		<li><a href="/Cake.Graph/api/Cake.Graph">Cake<wbr>.Graph</a></li>
+		<li class="header">Type</li>
+		<li><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions">Graph<wbr>Settings<wbr>Extensions</a></li>
+		<li role="separator" class="divider"></li>
+			<li class="header">Method Members</li>
+				<li><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions/8862C3A8">SetCssPath<wbr>(GraphSettings, <wbr>string)<wbr></a></li>
+				<li><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions/39B702A1">SetCytoscapeJsPath<wbr>(GraphSettings, <wbr>string)<wbr></a></li>
+				<li><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions/3ADE1F10">SetJQueryPath<wbr>(GraphSettings, <wbr>string)<wbr></a></li>
+				<li><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions/F42FD6A6">SetJsPath<wbr>(GraphSettings, <wbr>string)<wbr></a></li>
+				<li><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions/0E8B5315">SetMainPageName<wbr>(GraphSettings, <wbr>string)<wbr></a></li>
+				<li><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions/C9946ACF">SetNodeSetsPath<wbr>(GraphSettings, <wbr>string)<wbr></a></li>
+				<li><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions/21D14AA0">SetOutputPath<wbr>(GraphSettings, <wbr>string)<wbr></a></li>
+				<li><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions/8A5661E2">SetTaskListFileName<wbr>(GraphSettings, <wbr>string)<wbr></a></li>
+				<li class="selected"><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions/41CFF967">UseWyam<wbr>(GraphSettings, <wbr>bool)<wbr></a></li>
+
 
                     </ul>
                 </section>                
@@ -97,41 +155,85 @@
 
 
 
-	<section class="content-header">
-		<h1>Usage</h1>
-	</section>
-	<section class="content">
-		<p>To use Cake.Graph add the following line to the top of your cake script</p>
-<pre><code class="language-c#">#addin "Cake.Graph"
-</code></pre>
-<p>After this you can use the Graph method alias to create a GraphRunner and then can deploy the files. See <a href="../about.html">About Cake.Graph</a> for details.</p>
-<h1 id="deploy-cake.graph">Deploy Cake.Graph</h1>
-<p>There are two stages to the Cake.Graph deployment process. Deploying the web files and deploying the nodesets. Some settings such as the <code>TaskListFileName</code> or <code>OutputPath</code> are shared by the two steps and must be the same for each. Overloads are available for all deployment methods which will accept either a <code><a href="/Cake.Graph/api/Cake.Graph/GraphSettings">GraphSettings</a></code> object or an <code>Action&lt;GraphSettings&gt;</code>.</p>
-<p>It's recommended that you perform the "Deploy the web files" step once and commit the resulting files, then add the "Deploy the node set files" step to your build process preceding any generate documentation step. You should also add the node sets path to your .gitignore file.</p>
-<h2 id="deploy-the-web-files">Deploy the web files</h2>
-<p>This step will deploy several css, javascript, html and razor files which make up the web page which displays the graphs. The page uses <a href="http://js.cytoscape.org/">Cytoscape.js</a> to interpret the nodeset files and produce the graphs.</p>
-<pre><code class="language-csharp">Task("Deploy-Graph-WebFiles")
-    .Does(() =&gt;
-    {
-        Graph(Tasks).DeployWebFiles(s =&gt; s
-            .UseWyam()
-            .SetOutputPath("docs/output")
-        );
-    });
-</code></pre>
-<h2 id="deploy-the-node-set-files">Deploy the node set files</h2>
-<p>This step will check each task and its dependencies building a collection of nodes and edges representing tasks and their dependencies. This information will be written to a set of json files and are referred to as the nodeset files. <a href="http://js.cytoscape.org/">Cytoscape.js</a> is able to interpret this information and produce the graphs.</p>
-<pre><code class="language-csharp">Task("Deploy-Graph-Nodesets")
-    .Does(() =&gt;
-    {
-        Graph(Tasks).GenerateNodeSets(s =&gt; s
-            .UseWyam()
-            .SetOutputPath("docs/output")
-        );
-    });
-</code></pre>
+<section class="content-header">
+			<h3><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions">Graph<wbr>Settings<wbr>Extensions</a>.</h3>
+	<h1>UseWyam<wbr>(GraphSettings, <wbr>bool)<wbr> <small>Method</small></h1>
+</section>
+<section class="content">
+	
+	
+		<h1 id="Summary">Summary</h1>
+	<div class="lead">
+    Set whether to deploy an html page or a wyam ready cshtml page
+    </div>
 
-	</section>
+		<div class="panel panel-default">
+  			<div class="panel-body">	
+				<dl class="dl-horizontal">	
+						
+						<dt>Namespace</dt>
+						<dd><a href="/Cake.Graph/api/Cake.Graph">Cake<wbr>.Graph</a></dd>
+					
+						<dt>Containing Type</dt>
+						<dd><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions">Graph<wbr>Settings<wbr>Extensions</a></dd>		
+					
+				</dl>
+  			</div>
+		</div>
+
+	<h1 id="Syntax">Syntax</h1>
+	<pre><code>public static GraphSettings UseWyam(this GraphSettings settings, bool useWyam = true)</code></pre>
+
+
+
+
+
+	<h1 id="Parameters">Parameters</h1>
+	<div class="box">
+		<div class="box-body no-padding table-responsive">
+			<table class="table table-striped table-hover three-cols">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Type</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+					<tbody><tr>
+						<td>settings</td>
+						<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettings">GraphSettings</a></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>useWyam</td>
+						<td>bool</td>
+						<td></td>
+					</tr>
+			</tbody></table>
+		</div>
+	</div>	
+
+	<h1 id="ReturnValue">Return Value</h1>
+	<div class="box">
+		<div class="box-body no-padding table-responsive">
+			<table class="table table-striped table-hover two-cols">
+				<thead>
+					<tr>
+						<th>Type</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody><tr>
+					<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettings">GraphSettings</a></td>
+					<td></td>
+				</tr>
+			</tbody></table>
+		</div>
+	</div>	
+
+
+	
+</section>
                 
             </div>           
             
