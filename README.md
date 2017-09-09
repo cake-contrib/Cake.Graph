@@ -21,3 +21,15 @@ See [Cake.Graph Usage](https://cake-contrib.github.io/Cake.Graph/docs/usage) for
 
 ## Scope
 The purpose of this project is to provide a means of easily viewing build tasks defined in Cake scripts and their dependencies.
+
+## Roadmap
+
+Next steps for the project
+
+- Add more unit tests
+- Add to Cake.Recipe
+- Show selected Task description on the graph page
+- Allow the graph to scale based on number of dependencies/complexity
+- Add a different view which displays a list (as opposed to graph) of tasks in the order cake would run them
+
+Any other ideas/contributions are welcome.
