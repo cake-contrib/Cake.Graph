@@ -5,7 +5,8 @@ Task("Graph").Does(() => {
         .Deploy(settings => {
             settings.IsWyam = true;
             settings.TaskListFileName = "caketasklist.json";
-        });
+        })
+        .GenerateMermaidFiles(s => {s.IsWyam = true;});
 });
 
 BuildParameters.Tasks.PublishDocumentationTask

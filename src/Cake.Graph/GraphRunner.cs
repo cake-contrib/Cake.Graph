@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -89,6 +88,28 @@ namespace Cake.Graph
                 CreateNodeSetFile(task, settings);
 
             CreateTaskListFile(settings);
+
+            return this;
+        }
+
+        public GraphRunner GenerateMermaidFiles(Action<GraphSettings> configure = null)
+        {
+            var settings = new GraphSettings();
+            configure?.Invoke(settings);
+
+            return GenerateMermaidFiles(settings);
+        }
+
+        public GraphRunner GenerateMermaidFiles(GraphSettings settings)
+        {
+            context.Log.Write(Verbosity.Normal, LogLevel.Information, "Writing mermaid files");
+            var nodeSetsFolder = Path.Combine(settings.OutputPath, settings.NodeSetsPath);
+            context.Log.Write(Verbosity.Diagnostic, LogLevel.Information, $"Ensuring node sets directory at {nodeSetsFolder}");
+            if (!string.IsNullOrWhiteSpace(nodeSetsFolder))
+                Directory.CreateDirectory(nodeSetsFolder);
+
+            foreach (var task in tasks)
+                CreateMermaidFile(task, settings);
 
             return this;
         }
@@ -183,6 +204,54 @@ namespace Cake.Graph
             {
                 var serializer = new JsonSerializer();
                 serializer.Serialize(file, nodes);
+            }
+        }
+
+        private void CreateMermaidFile(CakeTask task, GraphSettings settings)
+        {
+            context.Log.Write(Verbosity.Normal, LogLevel.Information, $"Creating mermaid file for {task.Name} dependencies");
+
+            var stack = new Stack<CakeTask>();
+            stack.Push(task);
+
+            var filePath = Path.Combine(settings.OutputPath, settings.NodeSetsPath, $"{task.Name}.md");
+            context.Log.Write(Verbosity.Diagnostic, LogLevel.Information, $"Writing mermaid file for {task.Name} dependencies to {filePath}");
+            var edges = new HashSet<string>();
+            using (var file = File.CreateText(filePath))
+            {
+                if (!string.IsNullOrWhiteSpace(task.Description))
+                    file.WriteLine($"<p>{task.Description}</p>");
+                file.WriteLine("<div class=\"mermaid\">");
+                file.WriteLine("graph TD;");
+                while (stack.Count > 0)
+                {
+                    var currentNode = stack.Pop();
+                    context.Log.Write(Verbosity.Diagnostic, LogLevel.Debug,
+                        $"Creating Node for {currentNode.Name} which has {currentNode.Dependencies.Count} dependencies");
+
+                    foreach (var dependencyName in currentNode.Dependencies)
+                    {
+                        var dependencyTask = GetTask(dependencyName);
+                        context.Log.Write(Verbosity.Diagnostic, LogLevel.Debug,
+                            $"Found dependent task {dependencyTask.Name} with {dependencyTask.Dependencies.Count} dependencies");
+                        stack.Push(dependencyTask);
+
+                        context.Log.Write(Verbosity.Diagnostic, LogLevel.Debug,
+                            $"Creating Edge from {currentNode.Name} to {dependencyTask.Name}");
+                        var edge = $"{currentNode.Name}-->{dependencyTask.Name};";
+                        edges.Add(edge);
+                    }
+
+                    if (edges.Count == 0)
+                        file.WriteLine($"{task.Name};");
+                }
+
+                foreach (var edge in edges)
+                {
+                    file.WriteLine(edge);
+                }
+
+                file.WriteLine("</div>");
             }
         }
 
