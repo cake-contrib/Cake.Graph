@@ -1,4 +1,4 @@
-#addin "Cake.FileHelpers"
+#addin nuget:?package=Cake.FileHelpers&version=1.0.4
 
 Task("Copy-Readme-For-Docs")
     .WithCriteria(() => FileExists("README.md"))
