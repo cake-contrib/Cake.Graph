@@ -1,4 +1,4 @@
-#addin "Cake.Graph"
+#addin nuget:https://www.myget.org/F/cake-contrib/api/v2?package=Cake.Graph&prerelease
 
 
 Task("Graph").Does(() => {
