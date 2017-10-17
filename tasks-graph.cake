@@ -6,7 +6,6 @@ Task("Graph").Does(() => {
         .Deploy(settings => {
             settings.IsWyam = true;
             settings.TaskListFileName = "caketasklist.json";
-            settings.WithCytoscapeGenerator();
         });
 });
 
