@@ -1,3 +1,6 @@
+using System;
+using Cake.Graph.Generators;
+
 namespace Cake.Graph
 {
     /// <summary>
@@ -41,5 +44,9 @@ namespace Cake.Graph
         /// Name of the file to store the list of all the tasks in
         /// </summary>
         public string TaskListFileName { get; set; } = "tasklist.json";
+        /// <summary>
+        /// The generator which will convert the task and dependencies to a string
+        /// </summary>
+        public ITaskGraphGenerator Generator { get; set; }
     }
 }

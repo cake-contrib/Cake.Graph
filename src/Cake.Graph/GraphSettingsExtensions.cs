@@ -1,3 +1,6 @@
+using System;
+using Cake.Graph.Generators;
+
 namespace Cake.Graph
 {
     /// <summary>
@@ -103,6 +106,40 @@ namespace Cake.Graph
         public static GraphSettings SetTaskListFileName(this GraphSettings settings, string taskListFileName)
         {
             settings.TaskListFileName = taskListFileName;
+            return settings;
+        }
+
+        /// <summary>
+        /// Use a generator which outputs in mermaid syntax
+        /// </summary>
+        /// <param name="settings"></param>
+        /// <returns></returns>
+        public static GraphSettings WithMermaidGenerator(this GraphSettings settings)
+        {
+            settings.Generator = new MermaidGraphGenerator();
+            return settings;
+        }
+
+        /// <summary>
+        /// Use a generator which outputs in cytoscape syntax
+        /// </summary>
+        /// <param name="settings"></param>
+        /// <returns></returns>
+        public static GraphSettings WithCytoscapeGenerator(this GraphSettings settings)
+        {
+            settings.Generator = new CytoscapeGraphGenerator();
+            return settings;
+        }
+
+        /// <summary>
+        /// Use a custom generator
+        /// </summary>
+        /// <param name="settings"></param>
+        /// <param name="generator"></param>
+        /// <returns></returns>
+        public static GraphSettings WithCustomGenerator(this GraphSettings settings, ITaskGraphGenerator generator)
+        {
+            settings.Generator = generator;
             return settings;
         }
     }

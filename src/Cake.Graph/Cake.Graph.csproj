@@ -72,11 +72,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Generators\CakeTaskExtensions.cs" />
+    <Compile Include="Generators\CytoscapeGraphGenerator.cs" />
+    <Compile Include="Generators\TaskGraphGeneratorHelpers.cs" />
     <Compile Include="GraphAliases.cs" />
     <Compile Include="GraphConstants.cs" />
     <Compile Include="GraphSettings.cs" />
     <Compile Include="GraphSettingsExtensions.cs" />
     <Compile Include="GraphTemplate.cs" />
+    <Compile Include="Generators\ITaskGraphGenerator.cs" />
+    <Compile Include="Generators\MermaidGraphGenerator.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="GraphRunner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

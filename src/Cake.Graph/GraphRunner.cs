@@ -5,7 +5,6 @@ using System.Linq;
 using System.Reflection;
 using Cake.Core;
 using Cake.Core.Diagnostics;
-using Newtonsoft.Json;
 using RazorEngine;
 using RazorEngine.Configuration;
 using RazorEngine.Templating;
@@ -20,7 +19,7 @@ namespace Cake.Graph
     public class GraphRunner
     {
         private readonly ICakeContext context;
-        private readonly IReadOnlyList<CakeTask> tasks;
+        private readonly IReadOnlyList<ICakeTaskInfo> tasks;
         private readonly ITemplateServiceConfiguration razorTemplateServiceConfig = new TemplateServiceConfiguration
         {
             DisableTempFileLocking = true, // loads the files in-memory (gives the templates full-trust permissions)
@@ -30,7 +29,7 @@ namespace Cake.Graph
         /// <summary>
         /// Runs the commands to generate the graph node sets and deploy the html files for displaying graphs
         /// </summary>
-        public GraphRunner(ICakeContext context, IReadOnlyList<CakeTask> tasks)
+        public GraphRunner(ICakeContext context, IReadOnlyList<ICakeTaskInfo> tasks)
         {
             this.context = context ?? throw new ArgumentNullException(nameof(context));
             this.tasks = tasks ?? throw new ArgumentNullException(nameof(tasks));
@@ -54,62 +53,28 @@ namespace Cake.Graph
         /// <param name="settings"></param>
         public GraphRunner Deploy(GraphSettings settings)
         {
-            GenerateNodeSets(settings);
-            DeployWebFiles(settings);
+            if (settings.Generator == null)
+            {
+                context.Log.Information("No generator set. Using mermaid generator");
+                settings.WithMermaidGenerator();
+            }
 
-            return this;
-        }
+            var output =
+                tasks.Select(
+                    x => new KeyValuePair<string, string>(x.Name, settings.Generator.Serialize(context, x, tasks)));
 
-        /// <summary>
-        /// Create the node set files that describe each task and it's dependencies
-        /// </summary>
-        /// <param name="configure"></param>
-        public GraphRunner GenerateNodeSets(Action<GraphSettings> configure = null)
-        {
-            var settings = new GraphSettings();
-            configure?.Invoke(settings);
-
-            return GenerateNodeSets(settings);
-        }
-
-        /// <summary>
-        /// Create the node set files that describe each task and it's dependencies
-        /// </summary>
-        /// <param name="settings"></param>
-        public GraphRunner GenerateNodeSets(GraphSettings settings)
-        {
-            context.Log.Write(Verbosity.Normal, LogLevel.Information, "Writing graph node set files");
+            context.Log.Write(Verbosity.Normal, LogLevel.Information, "Writing files");
             var nodeSetsFolder = Path.Combine(settings.OutputPath, settings.NodeSetsPath);
             context.Log.Write(Verbosity.Diagnostic, LogLevel.Information, $"Ensuring node sets directory at {nodeSetsFolder}");
             if (!string.IsNullOrWhiteSpace(nodeSetsFolder))
                 Directory.CreateDirectory(nodeSetsFolder);
 
-            foreach (var task in tasks)
-                CreateNodeSetFile(task, settings);
-
-            CreateTaskListFile(settings);
-
-            return this;
-        }
-
-        public GraphRunner GenerateMermaidFiles(Action<GraphSettings> configure = null)
-        {
-            var settings = new GraphSettings();
-            configure?.Invoke(settings);
-
-            return GenerateMermaidFiles(settings);
-        }
-
-        public GraphRunner GenerateMermaidFiles(GraphSettings settings)
-        {
-            context.Log.Write(Verbosity.Normal, LogLevel.Information, "Writing mermaid files");
-            var nodeSetsFolder = Path.Combine(settings.OutputPath, settings.NodeSetsPath);
-            context.Log.Write(Verbosity.Diagnostic, LogLevel.Information, $"Ensuring node sets directory at {nodeSetsFolder}");
-            if (!string.IsNullOrWhiteSpace(nodeSetsFolder))
-                Directory.CreateDirectory(nodeSetsFolder);
-
-            foreach (var task in tasks)
-                CreateMermaidFile(task, settings);
+            foreach (var task in output)
+            {
+                var filePath = Path.Combine(settings.OutputPath, settings.NodeSetsPath, $"{task.Key}.{settings.Generator.Extension}");
+                using (var file = File.CreateText(filePath))
+                    file.Write(task.Value);
+            }
 
             return this;
         }
@@ -187,118 +152,6 @@ namespace Cake.Graph
             using (var readStream = assembly.GetManifestResourceStream(resource))
             using (var reader = new StreamReader(readStream ?? throw new ArgumentNullException(nameof(readStream))))
                 return reader.ReadToEnd();
-        }
-
-        private void CreateNodeSetFile(CakeTask task, GraphSettings settings)
-        {
-            context.Log.Write(Verbosity.Normal, LogLevel.Information, $"Creating node set for {task.Name} dependencies");
-            var nodes = GetTaskGraphNodes(task);
-
-            foreach (var node in nodes)
-                context.Log.Debug(Verbosity.Diagnostic, $"Node: {node.Data.Id}, Source: {node.Data.Source}, Target: {node.Data.Target}");
-
-            var filePath = Path.Combine(settings.OutputPath, settings.NodeSetsPath, $"{task.Name}.json");
-            context.Log.Write(Verbosity.Diagnostic, LogLevel.Information, $"Writing node set file for {task.Name} dependencies to {filePath}");
-
-            using (var file = File.CreateText(filePath))
-            {
-                var serializer = new JsonSerializer();
-                serializer.Serialize(file, nodes);
-            }
-        }
-
-        private void CreateMermaidFile(CakeTask task, GraphSettings settings)
-        {
-            context.Log.Write(Verbosity.Normal, LogLevel.Information, $"Creating mermaid file for {task.Name} dependencies");
-
-            var stack = new Stack<CakeTask>();
-            stack.Push(task);
-
-            var filePath = Path.Combine(settings.OutputPath, settings.NodeSetsPath, $"{task.Name}.md");
-            context.Log.Write(Verbosity.Diagnostic, LogLevel.Information, $"Writing mermaid file for {task.Name} dependencies to {filePath}");
-            var edges = new HashSet<string>();
-            using (var file = File.CreateText(filePath))
-            {
-                if (!string.IsNullOrWhiteSpace(task.Description))
-                    file.WriteLine($"<p>{task.Description}</p>");
-                file.WriteLine("<div class=\"mermaid\">");
-                file.WriteLine("graph TD;");
-                while (stack.Count > 0)
-                {
-                    var currentNode = stack.Pop();
-                    context.Log.Write(Verbosity.Diagnostic, LogLevel.Debug,
-                        $"Creating Node for {currentNode.Name} which has {currentNode.Dependencies.Count} dependencies");
-
-                    foreach (var dependencyName in currentNode.Dependencies)
-                    {
-                        var dependencyTask = GetTask(dependencyName);
-                        context.Log.Write(Verbosity.Diagnostic, LogLevel.Debug,
-                            $"Found dependent task {dependencyTask.Name} with {dependencyTask.Dependencies.Count} dependencies");
-                        stack.Push(dependencyTask);
-
-                        context.Log.Write(Verbosity.Diagnostic, LogLevel.Debug,
-                            $"Creating Edge from {currentNode.Name} to {dependencyTask.Name}");
-                        var edge = $"{currentNode.Name}-->{dependencyTask.Name};";
-                        edges.Add(edge);
-                    }
-
-                    if (edges.Count == 0)
-                        file.WriteLine($"{task.Name};");
-                }
-
-                foreach (var edge in edges)
-                {
-                    file.WriteLine(edge);
-                }
-
-                file.WriteLine("</div>");
-            }
-        }
-
-        private void CreateTaskListFile(GraphSettings settings)
-        {
-            context.Log.Write(Verbosity.Normal, LogLevel.Information, "Writing task list file");
-            var filePath = Path.Combine(settings.OutputPath, settings.NodeSetsPath, settings.TaskListFileName);
-            using (var file = File.CreateText(filePath))
-            {
-                var serializer = new JsonSerializer();
-                serializer.Serialize(file, tasks.Select(x => x.Name));
-            }
-        }
-
-        private IReadOnlyList<Node> GetTaskGraphNodes(CakeTask task)
-        {
-            var nodes = new List<Node>();
-
-            var stack = new Stack<CakeTask>();
-            stack.Push(task);
-            while (stack.Count > 0)
-            {
-                var currentNode = stack.Pop();
-                context.Log.Write(Verbosity.Diagnostic, LogLevel.Debug, $"Creating Node for {currentNode.Name} which has {currentNode.Dependencies.Count} dependencies");
-                nodes.Add(new Node(currentNode.Name));
-
-                foreach (var dependencyName in currentNode.Dependencies)
-                {
-                    var dependencyTask = GetTask(dependencyName);
-                    context.Log.Write(Verbosity.Diagnostic, LogLevel.Debug, $"Found dependent task {dependencyTask.Name} with {dependencyTask.Dependencies.Count} dependencies");
-                    stack.Push(dependencyTask);
-
-                    context.Log.Write(Verbosity.Diagnostic, LogLevel.Debug, $"Creating Edge from {currentNode.Name} to {dependencyTask.Name}");
-                    nodes.Add(new Node(Guid.NewGuid().ToString(), currentNode.Name, dependencyTask.Name));
-                }
-            }
-
-            return nodes;
-        }
-
-        private CakeTask GetTask(string taskName)
-        {
-            var task = tasks.FirstOrDefault(x => string.Equals(x.Name, taskName, StringComparison.InvariantCultureIgnoreCase));
-            if (task == null)
-                throw new ArgumentException($"Unknown task: {taskName}");
-
-            return task;
         }
     }
 }
