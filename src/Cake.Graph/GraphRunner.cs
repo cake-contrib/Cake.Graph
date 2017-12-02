@@ -211,7 +211,7 @@ namespace Cake.Graph
 
                 foreach (var dependencyName in currentNode.Dependencies)
                 {
-                    var dependencyTask = GetTask(dependencyName);
+                    var dependencyTask = GetTask(dependencyName.Name);
                     context.Log.Write(Verbosity.Diagnostic, LogLevel.Debug, $"Found dependent task {dependencyTask.Name} with {dependencyTask.Dependencies.Count} dependencies");
                     stack.Push(dependencyTask);
 
