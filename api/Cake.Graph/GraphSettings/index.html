@@ -58,7 +58,6 @@
                         <ul class="nav navbar-nav">                            
                                     <li><a href="/Cake.Graph/about">About Cake.Graph</a></li>
         <li><a href="/Cake.Graph/docs">Docs</a></li>
-        <li><a href="/Cake.Graph/graph">Graph</a></li>
         <li><a href="/Cake.Graph/blog">Blog</a></li>
         <li class="active"><a href="/Cake.Graph/api">API</a></li>
  
@@ -136,7 +135,6 @@
 				<li><a href="/Cake.Graph/api/Cake.Graph/GraphRunner">GraphRunner</a></li>
 				<li class="selected"><a href="/Cake.Graph/api/Cake.Graph/GraphSettings">GraphSettings</a></li>
 				<li><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions">Graph<wbr>Settings<wbr>Extensions</a></li>
-				<li><a href="/Cake.Graph/api/Cake.Graph/GraphTemplate_1">GraphTemplate<wbr>&lt;T&gt;<wbr></a></li>
 				<li><a href="/Cake.Graph/api/Cake.Graph/Node">Node</a></li>
 
 
@@ -217,56 +215,11 @@ class Type type-node
 							</tr>
 						</thead>
 							<tbody><tr>
-								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettings/8DDCB912">CssPath</a></td>
-								<td>string</td>
+								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettings/9C0DC2FC">Generator</a></td>
+								<td><a href="/Cake.Graph/api/Cake.Graph.Generators/ITaskGraphGenerator">ITaskGraphGenerator</a></td>
 								<td>
 									<div>
-    Path to the css file that styles the graph container
-    </div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettings/903E655F">CytoscapeJsPath</a></td>
-								<td>string</td>
-								<td>
-									<div>
-    Path to the cytoscape js file
-    </div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettings/B76363DC">IsWyam</a></td>
-								<td>bool</td>
-								<td>
-									<div>
-    Skips deployment of jQuery and deploys a cshtml file instead of html file
-    </div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettings/3042D8EC">JQueryPath</a></td>
-								<td>string</td>
-								<td>
-									<div>
-    Path to the jquery file (ignored when using wyam)
-    </div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettings/F3C9CA92">JsPath</a></td>
-								<td>string</td>
-								<td>
-									<div>
-    Path to the js file which loads the node sets and renders the graph
-    </div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettings/6030299B">MainPageName</a></td>
-								<td>string</td>
-								<td>
-									<div>
-    Name of the html/cshtml file that will be used to display the graphs
+    The generator which will convert the task and dependencies to a string
     </div>
 								</td>
 							</tr>
@@ -285,15 +238,6 @@ class Type type-node
 								<td>
 									<div>
     Root folder to deploy content to
-    </div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettings/C7C3485D">TaskListFileName</a></td>
-								<td>string</td>
-								<td>
-									<div>
-    Name of the file to store the list of all the tasks in
     </div>
 								</td>
 							</tr>
@@ -316,57 +260,6 @@ class Type type-node
 							</tr>
 						</thead>
 							<tbody><tr>
-								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions/8862C3A8">SetCssPath<wbr>(string)<wbr></a></td>
-								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettings">GraphSettings</a></td>
-								<td>
-									<div>
-    Set the file name that the css file will be deployed as. Prepended by OutputPath
-    </div>
-										<div><small><em>From <a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions">Graph<wbr>Settings<wbr>Extensions</a></em></small></div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions/39B702A1">SetCytoscapeJsPath<wbr>(string)<wbr></a></td>
-								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettings">GraphSettings</a></td>
-								<td>
-									<div>
-    Set the file name that the cytoscape javascript file will be deployed as. Prepended by OutputPath
-    </div>
-										<div><small><em>From <a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions">Graph<wbr>Settings<wbr>Extensions</a></em></small></div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions/3ADE1F10">SetJQueryPath<wbr>(string)<wbr></a></td>
-								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettings">GraphSettings</a></td>
-								<td>
-									<div>
-    Set the file name that the jquery file will be deployed as. Prepended by OutputPath.
-    Not used with Wyam deployment
-    </div>
-										<div><small><em>From <a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions">Graph<wbr>Settings<wbr>Extensions</a></em></small></div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions/F42FD6A6">SetJsPath<wbr>(string)<wbr></a></td>
-								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettings">GraphSettings</a></td>
-								<td>
-									<div>
-    Set the file name that the graph js file will be deployed as. Prepended by OutputPath
-    </div>
-										<div><small><em>From <a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions">Graph<wbr>Settings<wbr>Extensions</a></em></small></div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions/0E8B5315">SetMainPageName<wbr>(string)<wbr></a></td>
-								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettings">GraphSettings</a></td>
-								<td>
-									<div>
-    Set the name of the html/cshtml file when deployed
-    </div>
-										<div><small><em>From <a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions">Graph<wbr>Settings<wbr>Extensions</a></em></small></div>
-								</td>
-							</tr>
-							<tr>
 								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions/C9946ACF">SetNodeSetsPath<wbr>(string)<wbr></a></td>
 								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettings">GraphSettings</a></td>
 								<td>
@@ -387,21 +280,21 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions/8A5661E2">SetTaskListFileName<wbr>(string)<wbr></a></td>
+								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions/4E671E90">WithCustomGenerator<wbr>(<wbr>I<wbr>Task<wbr>Graph<wbr>Generator)<wbr></a></td>
 								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettings">GraphSettings</a></td>
 								<td>
 									<div>
-    Set the file name that the json file which lists all the tasks be deployed as. Prepended by OutputPath
+    Use a custom generator
     </div>
 										<div><small><em>From <a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions">Graph<wbr>Settings<wbr>Extensions</a></em></small></div>
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions/41CFF967">UseWyam<wbr>(bool)<wbr></a></td>
+								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions/BDBEAC5C">WithMermaidGenerator<wbr>()<wbr></a></td>
 								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettings">GraphSettings</a></td>
 								<td>
 									<div>
-    Set whether to deploy an html page or a wyam ready cshtml page
+    Use a generator which outputs in mermaid syntax
     </div>
 										<div><small><em>From <a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions">Graph<wbr>Settings<wbr>Extensions</a></em></small></div>
 								</td>

@@ -58,7 +58,6 @@
                         <ul class="nav navbar-nav">                            
                                     <li><a href="/Cake.Graph/about">About Cake.Graph</a></li>
         <li><a href="/Cake.Graph/docs">Docs</a></li>
-        <li><a href="/Cake.Graph/graph">Graph</a></li>
         <li><a href="/Cake.Graph/blog">Blog</a></li>
         <li class="active"><a href="/Cake.Graph/api">API</a></li>
  
@@ -186,22 +185,6 @@ public static GraphRunner Graph(this ICakeContext context, IReadOnlyList&lt;Cake
     .Does(() =&gt;
 {
     Graph(Tasks).Deploy(s =&gt; s.SetOutputPath("output"));
-});</code></pre>
-    
-
-    <p>Generate the nodesets files for use with deployed web files</p>
-    <pre><code class="cs">Task("Graph")
-    .Does(() =&gt;
-{
-    Graph(Tasks).GenerateNodeSets(s =&gt; s.SetOutputPath("output"));
-});</code></pre>
-    
-
-    <p>Deploy the web files needed for Cake.Graph to display the graphs</p>
-    <pre><code class="cs">Task("Graph")
-    .Does(() =&gt;
-{
-    Graph(Tasks).DeployWebFiles(s =&gt; s.SetOutputPath("output"));
 });</code></pre>
     </div>
 
