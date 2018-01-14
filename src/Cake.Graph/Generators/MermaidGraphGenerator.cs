@@ -52,7 +52,7 @@ namespace Cake.Graph.Generators
             return sb.ToString();
         }
 
-        private IReadOnlyCollection<string> GetEdges(ICakeContext context, ICakeTaskInfo task, IReadOnlyList<ICakeTaskInfo> tasks)
+        private static IReadOnlyCollection<string> GetEdges(ICakeContext context, ICakeTaskInfo task, IReadOnlyList<ICakeTaskInfo> tasks)
         {
             var taskDictionary = tasks.ToDictionary();
 

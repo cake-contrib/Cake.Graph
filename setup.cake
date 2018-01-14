@@ -1,6 +1,5 @@
-#load nuget:https://www.myget.org/F/cake-contrib/api/v2?package=Cake.Recipe&version=0.3.0-unstable0273
+#load nuget:https://www.myget.org/F/cake-contrib/api/v2?package=Cake.Recipe&version=0.3.0-unstable0342
 #load "docs-prep.cake"
-#load "tasks-graph.cake"
 
 Environment.SetVariableNames();
 
