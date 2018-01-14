@@ -47,7 +47,7 @@ namespace Cake.Graph.Generators
 
                 foreach (var dependencyName in currentNode.Dependencies)
                 {
-                    var dependencyTask = TaskGraphGeneratorHelpers.GetTaskDependency(context, taskDictionary, dependencyName);
+                    var dependencyTask = TaskGraphGeneratorHelpers.GetTaskDependency(context, taskDictionary, dependencyName.Name);
                     stack.Push(dependencyTask);
                     context.Log.Write(Verbosity.Diagnostic, LogLevel.Debug, $"Creating Edge from {currentNode.Name} to {dependencyTask.Name}");
                     nodes.Add(new Node(Guid.NewGuid().ToString(), currentNode.Name, dependencyTask.Name));

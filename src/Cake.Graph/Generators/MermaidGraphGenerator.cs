@@ -68,7 +68,7 @@ namespace Cake.Graph.Generators
 
                 foreach (var dependencyName in currentNode.Dependencies)
                 {
-                    var dependencyTask = TaskGraphGeneratorHelpers.GetTaskDependency(context, taskDictionary, dependencyName);
+                    var dependencyTask = TaskGraphGeneratorHelpers.GetTaskDependency(context, taskDictionary, dependencyName.Name);
 
                     if (visited.Contains(dependencyTask.Name, StringComparer.InvariantCultureIgnoreCase))
                         continue;
