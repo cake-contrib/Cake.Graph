@@ -34,32 +34,32 @@ var searchModule = function() {
 
     a({
         id:0,
-        title:"ITaskGraphGenerator",
-        content:"ITaskGraphGenerator",
+        title:"Node",
+        content:"Node",
         description:'',
         tags:''
     });
 
     a({
         id:1,
-        title:"GraphSettingsExtensions",
-        content:"GraphSettingsExtensions",
+        title:"GraphAliases",
+        content:"GraphAliases",
         description:'',
         tags:''
     });
 
     a({
         id:2,
-        title:"TaskGraphGeneratorHelpers",
-        content:"TaskGraphGeneratorHelpers",
+        title:"CakeTaskExtensions",
+        content:"CakeTaskExtensions",
         description:'',
         tags:''
     });
 
     a({
         id:3,
-        title:"GraphAliases",
-        content:"GraphAliases",
+        title:"Node NodeData",
+        content:"Node NodeData",
         description:'',
         tags:''
     });
@@ -82,93 +82,93 @@ var searchModule = function() {
 
     a({
         id:6,
-        title:"Node NodeData",
-        content:"Node NodeData",
+        title:"TaskGraphGeneratorHelpers",
+        content:"TaskGraphGeneratorHelpers",
         description:'',
         tags:''
     });
 
     a({
         id:7,
-        title:"CakeTaskExtensions",
-        content:"CakeTaskExtensions",
+        title:"GraphSettingsExtensions",
+        content:"GraphSettingsExtensions",
         description:'',
         tags:''
     });
 
     a({
         id:8,
-        title:"MermaidGraphGenerator",
-        content:"MermaidGraphGenerator",
+        title:"ITaskGraphGenerator",
+        content:"ITaskGraphGenerator",
         description:'',
         tags:''
     });
 
     a({
         id:9,
-        title:"Node",
-        content:"Node",
+        title:"MermaidGraphGenerator",
+        content:"MermaidGraphGenerator",
         description:'',
         tags:''
     });
 
     y({
-        url:'/Cake.Graph/Cake.Graph/api/Cake.Graph.Generators/ITaskGraphGenerator',
-        title:"ITaskGraphGenerator",
+        url:'/Cake.Graph/api/Cake.Graph/Node',
+        title:"Node",
         description:""
     });
 
     y({
-        url:'/Cake.Graph/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions',
-        title:"GraphSettingsExtensions",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Graph/Cake.Graph/api/Cake.Graph.Generators/TaskGraphGeneratorHelpers',
-        title:"TaskGraphGeneratorHelpers",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Graph/Cake.Graph/api/Cake.Graph/GraphAliases',
+        url:'/Cake.Graph/api/Cake.Graph/GraphAliases',
         title:"GraphAliases",
         description:""
     });
 
     y({
-        url:'/Cake.Graph/Cake.Graph/api/Cake.Graph/GraphRunner',
-        title:"GraphRunner",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Graph/Cake.Graph/api/Cake.Graph/GraphSettings',
-        title:"GraphSettings",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Graph/Cake.Graph/api/Cake.Graph/NodeData',
-        title:"Node.NodeData",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Graph/Cake.Graph/api/Cake.Graph.Generators/CakeTaskExtensions',
+        url:'/Cake.Graph/api/Cake.Graph.Generators/CakeTaskExtensions',
         title:"CakeTaskExtensions",
         description:""
     });
 
     y({
-        url:'/Cake.Graph/Cake.Graph/api/Cake.Graph.Generators/MermaidGraphGenerator',
-        title:"MermaidGraphGenerator",
+        url:'/Cake.Graph/api/Cake.Graph/NodeData',
+        title:"Node.NodeData",
         description:""
     });
 
     y({
-        url:'/Cake.Graph/Cake.Graph/api/Cake.Graph/Node',
-        title:"Node",
+        url:'/Cake.Graph/api/Cake.Graph/GraphRunner',
+        title:"GraphRunner",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Graph/api/Cake.Graph/GraphSettings',
+        title:"GraphSettings",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Graph/api/Cake.Graph.Generators/TaskGraphGeneratorHelpers',
+        title:"TaskGraphGeneratorHelpers",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions',
+        title:"GraphSettingsExtensions",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Graph/api/Cake.Graph.Generators/ITaskGraphGenerator',
+        title:"ITaskGraphGenerator",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Graph/api/Cake.Graph.Generators/MermaidGraphGenerator',
+        title:"MermaidGraphGenerator",
         description:""
     });
 

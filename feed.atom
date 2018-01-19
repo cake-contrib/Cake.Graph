@@ -4,7 +4,7 @@
 	<id>http://cake-contrib.github.io/Cake.Graph</id>
 	<title>Cake.Graph</title>
 	<rights>2018</rights>
-	<updated>2018-01-14T19:09:36Z</updated>
+	<updated>2018-01-19T21:50:37Z</updated>
 	<entry>
 		<author>
 			<name>Warren Bates</name>
@@ -13,6 +13,8 @@
 		<id>http://cake-contrib.github.io/Cake.Graph/blog/new-release-v0.1.0</id>
 		<title>New Release V0.1.0</title>
 		<updated>2017-09-02T00:00:00Z</updated>
+		<content>&lt;p&gt;First release of Cake.Graph&lt;/p&gt;
+</content>
 		<summary>&lt;p&gt;First release of Cake.Graph&lt;/p&gt;</summary>
 	</entry>
 </feed>
