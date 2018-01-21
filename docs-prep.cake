@@ -1,3 +1,4 @@
+#tool nuget:?package=JetBrains.ReSharper.CommandLineTools&version=2017.3.1
 #addin nuget:?package=Cake.FileHelpers&version=2.0.0
 
 Task("Copy-Readme-For-Docs")
