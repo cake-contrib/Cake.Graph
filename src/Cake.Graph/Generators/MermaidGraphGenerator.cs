@@ -8,7 +8,7 @@ using Cake.Core.Diagnostics;
 namespace Cake.Graph.Generators
 {
     /// <summary>
-    /// Generate which outputs in mermaid syntax
+    /// Generate graph outputs in mermaid syntax
     /// </summary>
     public class MermaidGraphGenerator : ITaskGraphGenerator
     {

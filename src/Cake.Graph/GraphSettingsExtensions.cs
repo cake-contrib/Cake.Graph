@@ -42,6 +42,39 @@ namespace Cake.Graph
         }
 
         /// <summary>
+        /// Use a generator which outputs separate files with mermaid graphs
+        /// </summary>
+        /// <param name="settings"></param>
+        /// <returns></returns>
+        public static GraphSettings WithMermaidHtmlGenerator(this GraphSettings settings)
+        {
+            settings.Generator = new MermaidHtmlGenerator();
+            return settings;
+        }
+
+        /// <summary>
+        /// Use a generator which outputs in cytoscape syntax
+        /// </summary>
+        /// <param name="settings"></param>
+        /// <returns></returns>
+        public static GraphSettings WithCytoscapeGenerator(this GraphSettings settings)
+        {
+            settings.Generator = new CytoscapeGraphGenerator();
+            return settings;
+        }
+
+        /// <summary>
+        /// Use a generator which outputs separate files with mermaid graphs
+        /// </summary>
+        /// <param name="settings"></param>
+        /// <returns></returns>
+        public static GraphSettings WithCytoscapeHtmlGenerator(this GraphSettings settings)
+        {
+            settings.Generator = new CytoscapeHtmlGenerator();
+            return settings;
+        }
+
+        /// <summary>
         /// Use a custom generator
         /// </summary>
         /// <param name="settings"></param>

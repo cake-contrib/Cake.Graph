@@ -41,6 +41,9 @@
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="RazorEngine, Version=3.10.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorEngine.3.10.0\lib\net45\RazorEngine.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -70,6 +73,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Generators\CakeTaskExtensions.cs" />
+    <Compile Include="Generators\CytoscapeGraphGenerator.cs" />
+    <Compile Include="Generators\CytoscapeHtmlGenerator.cs" />
+    <Compile Include="Generators\MermaidHtmlGenerator.cs" />
+    <Compile Include="Models\GraphHtmlModel.cs" />
+    <Compile Include="GraphTemplate.cs" />
+    <Compile Include="ResourceHelpers.cs" />
     <Compile Include="Generators\TaskGraphGeneratorHelpers.cs" />
     <Compile Include="GraphAliases.cs" />
     <Compile Include="GraphSettings.cs" />
@@ -82,6 +91,8 @@
     <Compile Include="SolutionInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Content\mermaid.cshtml" />
+    <EmbeddedResource Include="Content\cytoscape.cshtml" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
