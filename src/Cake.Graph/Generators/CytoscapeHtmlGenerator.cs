@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using Cake.Core;
 using Cake.Graph.Models;
+using Cake.Graph.Templates;
 
 namespace Cake.Graph.Generators
 {
@@ -9,8 +11,23 @@ namespace Cake.Graph.Generators
     /// </summary>
     public class CytoscapeHtmlGenerator : ITaskGraphGenerator
     {
-        private const string razorTemplatePath = "Cake.Graph.Content.cytoscape.cshtml";
+        /// <summary>
+        /// CytoscapeHtmlGenerator
+        /// </summary>
+        /// <param name="graphTemplateManager"></param>
+        public CytoscapeHtmlGenerator(IGraphTemplateManager graphTemplateManager)
+        {
+            this.graphTemplateManager = graphTemplateManager ??
+                                        throw new ArgumentNullException(nameof(graphTemplateManager));
+        }
+
+        /// <summary>
+        /// CytoscapeHtmlGenerator
+        /// </summary>
+        public CytoscapeHtmlGenerator() : this(new GraphTemplateManager()) { }
+
         private readonly CytoscapeGraphGenerator graphGenerator = new CytoscapeGraphGenerator();
+        private readonly IGraphTemplateManager graphTemplateManager;
 
         /// <summary>
         /// Url/path for the cytoscape js file
@@ -33,7 +50,7 @@ namespace Cake.Graph.Generators
         {
             var graph = graphGenerator.Serialize(context, task, tasks);
             var model = new GraphHtmlModel(task.Name, CytoscapeJsSource, graph);
-            var html = ResourceHelpers.ParseRazorTemplateFromResource(razorTemplatePath, model);
+            var html = graphTemplateManager.ParseTemplate(TemplateTypes.Cytoscape, model);
             return html;
         }
     }

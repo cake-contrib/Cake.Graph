@@ -76,9 +76,12 @@
     <Compile Include="Generators\CytoscapeGraphGenerator.cs" />
     <Compile Include="Generators\CytoscapeHtmlGenerator.cs" />
     <Compile Include="Generators\MermaidHtmlGenerator.cs" />
+    <Compile Include="Templates\GraphTemplateRepository.cs" />
+    <Compile Include="Templates\IGraphTemplateManager.cs" />
+    <Compile Include="Templates\IGraphTemplateRepository.cs" />
     <Compile Include="Models\GraphHtmlModel.cs" />
     <Compile Include="GraphTemplate.cs" />
-    <Compile Include="ResourceHelpers.cs" />
+    <Compile Include="Templates\GraphTemplateManager.cs" />
     <Compile Include="Generators\TaskGraphGeneratorHelpers.cs" />
     <Compile Include="GraphAliases.cs" />
     <Compile Include="GraphSettings.cs" />
@@ -89,6 +92,7 @@
     <Compile Include="GraphRunner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SolutionInfo.cs" />
+    <Compile Include="Templates\TemplateTypes.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Content\mermaid.cshtml" />

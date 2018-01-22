@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using Cake.Core;
 using Cake.Graph.Models;
+using Cake.Graph.Templates;
 
 namespace Cake.Graph.Generators
 {
@@ -9,9 +11,23 @@ namespace Cake.Graph.Generators
     /// </summary>
     public class MermaidHtmlGenerator : ITaskGraphGenerator
     {
-        private const string razorTemplatePath = "Cake.Graph.Content.mermaid.cshtml";
-        private readonly MermaidGraphGenerator graphGenerator = new MermaidGraphGenerator();
+        /// <summary>
+        /// MermaidHtmlGenerator
+        /// </summary>
+        /// <param name="graphTemplateManager"></param>
+        public MermaidHtmlGenerator(IGraphTemplateManager graphTemplateManager)
+        {
+            this.graphTemplateManager = graphTemplateManager ??
+                                        throw new ArgumentNullException(nameof(graphTemplateManager));
+        }
 
+        /// <summary>
+        /// MermaidHtmlGenerator
+        /// </summary>
+        public MermaidHtmlGenerator() : this(new GraphTemplateManager()){}
+
+        private readonly MermaidGraphGenerator graphGenerator = new MermaidGraphGenerator();
+        private readonly IGraphTemplateManager graphTemplateManager;
         /// <summary>
         /// Url/path for the mermaid js file
         /// </summary>
@@ -33,7 +49,7 @@ namespace Cake.Graph.Generators
         {
             var graph = graphGenerator.Serialize(context, task, tasks);
             var model = new GraphHtmlModel(task.Name, MermaidJsSource, graph);
-            var html = ResourceHelpers.ParseRazorTemplateFromResource(razorTemplatePath, model);
+            var html = graphTemplateManager.ParseTemplate(TemplateTypes.Mermaid, model);
             return html;
         }
     }
