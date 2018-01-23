@@ -2,6 +2,7 @@ using RazorEngine.Templating;
 
 namespace Cake.Graph
 {
+    /// <inheritdoc />
     /// <summary>
     /// Template for processing web files before saving
     /// </summary>
@@ -14,7 +15,6 @@ namespace Cake.Graph
         public new T Model
         {
             get => base.Model;
-            set => base.Model = value;
         }
     }
 }

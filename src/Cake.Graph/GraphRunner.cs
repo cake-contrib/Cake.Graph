@@ -55,14 +55,13 @@ namespace Cake.Graph
                     x => new KeyValuePair<string, string>(x.Name, settings.Generator.Serialize(context, x, tasks)));
 
             context.Log.Write(Verbosity.Normal, LogLevel.Information, "Writing files");
-            var nodeSetsFolder = Path.Combine(settings.OutputPath, settings.NodeSetsPath);
-            context.Log.Write(Verbosity.Diagnostic, LogLevel.Information, $"Ensuring node sets directory at {nodeSetsFolder}");
-            if (!string.IsNullOrWhiteSpace(nodeSetsFolder))
-                Directory.CreateDirectory(nodeSetsFolder);
+            context.Log.Write(Verbosity.Diagnostic, LogLevel.Information, $"Ensuring node sets directory at {settings.OutputPath}");
+            if (!string.IsNullOrWhiteSpace(settings.OutputPath))
+                Directory.CreateDirectory(settings.OutputPath);
 
             foreach (var task in output)
             {
-                var filePath = Path.Combine(settings.OutputPath, settings.NodeSetsPath, $"{task.Key}.{settings.Generator.Extension}");
+                var filePath = Path.Combine(settings.OutputPath, $"{task.Key}.{settings.Generator.Extension}");
                 using (var file = File.CreateText(filePath))
                     file.Write(task.Value);
             }

@@ -28,6 +28,6 @@ namespace Cake.Graph
         /// </code>
         /// </example>
         [CakeMethodAlias]
-        public static GraphRunner Graph(this ICakeContext context, IReadOnlyList<CakeTask> tasks) => new GraphRunner(context, tasks);
+        public static GraphRunner Graph(this ICakeContext context, IReadOnlyList<ICakeTaskInfo> tasks) => new GraphRunner(context, tasks);
     }
 }

@@ -20,15 +20,6 @@ namespace Cake.Graph.Tests
         }
 
         [Fact]
-        public void SetNodeSetsPath_Sets_NodeSetsPath_Property()
-        {
-            var settings = new GraphSettings();
-            var randomString = autofixture.Create<string>();
-            settings.SetNodeSetsPath(randomString);
-            settings.NodeSetsPath.ShouldBe(randomString);
-        }
-
-        [Fact]
         public void WithMermaidGenerator_Sets_Generator_Property()
         {
             var settings = new GraphSettings();

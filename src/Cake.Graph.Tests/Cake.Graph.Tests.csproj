@@ -74,9 +74,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GraphAliasesTests.cs" />
+    <Compile Include="GraphGeneratorTests.cs" />
+    <Compile Include="GraphRunnerTests.cs" />
     <Compile Include="GraphSettingsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GraphTemplateRepositoryTests.cs" />
+    <Compile Include="TestHelpers.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Data\index.cshtml" />

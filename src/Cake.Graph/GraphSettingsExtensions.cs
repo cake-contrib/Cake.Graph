@@ -8,7 +8,7 @@ namespace Cake.Graph
     public static class GraphSettingsExtensions
     {
         /// <summary>
-        /// Root path for deploying all other files
+        /// Root path for deploying all files
         /// </summary>
         /// <param name="settings"></param>
         /// <param name="outputPath"></param>
@@ -16,17 +16,6 @@ namespace Cake.Graph
         public static GraphSettings SetOutputPath(this GraphSettings settings, string outputPath)
         {
             settings.OutputPath = outputPath;
-            return settings;
-        }
-        /// <summary>
-        /// Set the directory to put the .json files which describe each task. OutputPath will be prepended
-        /// </summary>
-        /// <param name="settings"></param>
-        /// <param name="nodeSetsPath"></param>
-        /// <returns></returns>
-        public static GraphSettings SetNodeSetsPath(this GraphSettings settings, string nodeSetsPath)
-        {
-            settings.NodeSetsPath = nodeSetsPath;
             return settings;
         }
 

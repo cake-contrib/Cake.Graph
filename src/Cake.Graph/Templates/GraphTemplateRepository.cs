@@ -36,8 +36,8 @@ namespace Cake.Graph.Templates
 
         private static IDictionary<TemplateTypes, string> defaultTemplateResourcePaths { get; } = new Dictionary<TemplateTypes, string>
         {
-            { TemplateTypes.Cytoscape, "Cake.Graph.Content.cytoscape.html" },
-            { TemplateTypes.Mermaid, "Cake.Graph.Content.mermaid.html" }
+            { TemplateTypes.Cytoscape, "Cake.Graph.Content.cytoscape.cshtml" },
+            { TemplateTypes.Mermaid, "Cake.Graph.Content.mermaid.cshtml" }
         };
 
         /// <summary>
