@@ -52,10 +52,10 @@ namespace Cake.Graph.Tests
         }
 
         public const string TaskCMermaidPattern = @"<div class=""mermaid"">
-(\s*)?graph TD;
-(\s*)?C-->B;
-(\s*)?B-->A;
-(\s*)?<\/div>(\s)?";
+graph TD;
+C-->B;
+B-->A;
+</div>";
 
         public const string TaskCCytoscapePattern = @"\[\{""data"":\{""id"":""C"",""source"":null,""target"":null\}\},\{""data"":\{""id"":""[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}"",""source"":""C"",""target"":""B""\}\},\{""data"":\{""id"":""B"",""source"":null,""target"":null\}\},\{""data"":\{""id"":""[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}"",""source"":""B"",""target"":""A""\}\},\{""data"":\{""id"":""A"",""source"":null,""target"":null\}\}\]";
     }
