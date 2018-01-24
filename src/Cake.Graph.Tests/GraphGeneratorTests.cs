@@ -19,7 +19,6 @@ namespace Cake.Graph.Tests
             taskC = tasks.First(x => string.Equals(x.Name, "C"));
         }
 
-        //[Theory(Skip = "Unable to pass on AppVeyor")]
         [Theory]
         [InlineData(typeof(MermaidGraphGenerator), TestHelpers.TaskCMermaidPattern)]
         [InlineData(typeof(CytoscapeGraphGenerator), TestHelpers.TaskCCytoscapePattern)]
@@ -31,14 +30,6 @@ namespace Cake.Graph.Tests
             var graphGenerator = (ITaskGraphGenerator)Activator.CreateInstance(generatorType);
             var result = graphGenerator.Serialize(mockContext.Object, taskC, tasks);
             result.ShouldMatch(expectedResult);
-        }
-
-        [Theory]
-        [InlineData("\r\n")]
-        [InlineData("\n")]
-        public void Newline(string pattern)
-        {
-            Environment.NewLine.ShouldMatch(pattern);
         }
     }
 }
