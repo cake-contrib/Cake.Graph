@@ -96,10 +96,54 @@
 	</section>
 	<section class="content">
 		<h1>What is it?</h1>
-Cake.Graph is an alias for Cake to create a html page to allow viewing all Cake Tasks and their dependencies from Cake build scripts.
+<p>Cake.Graph is an alias for Cake to create a html page to allow viewing all Cake Tasks and their dependencies from Cake build scripts. 
+    It is intended to be used alongside Wyam, producing Mermaid syntax which Wyam natively supports, but can be used independently to create a simple page viewable in a browser.</p>
 
+<h2>Mermaid - Wyam</h2>
+<p>The default generator can be deployed with the following command</p>
+<div><code>Graph(Tasks).Deploy();</code></div>
+<img src="assets/images/MermaidWyam.png" alt="Mermaid in a wyam page" style="display:block" />
+
+<h2>Mermaid</h2>
+<p>This command will produce individual html files which link to a CDN to get the mermaid javascript source. The CDN url can be overriden using the settings.</p>
+<div><code>Graph(Tasks).Deploy(s => s.WithMermaidHtmlGenerator());</code></div>
+<img src="assets/images/Mermaid.png" alt="Mermaid" style="display:block" />
+
+<h2>Cytoscape</h2>
+<p>If you prefer to use Cytoscape syntax then use the <code>WithCytoscapeHtmlGenerator</code> extension method on the settings used with the Deploy command as follows. 
+The cytoscape javascript source can be changed with the settings</p>
+<div><code>Graph(Tasks).Deploy(s => s.WithCytoscapeHtmlGenerator());</code></div>
+<img src="assets/images/Cytoscape.png" alt="Cytoscape" style="display:block" />
+<p>If you wish to generate cytoscape syntax files for use elsewhere then use the <code>WithCytoscapeGenerator</code> extension method. 
+This will output json files containing ctyoscape syntax for each of the tasks.</p>
+<code>
+[
+    {
+        "data": {
+            "id": "Default",
+            "source": null,
+            "target": null
+        }
+    },
+    {
+        "data": {
+            "id": "261ca3c8-ace6-4d36-aa34-16bf767b7742",
+            "source": "Default",
+            "target": "Package"
+        }
+    },
+    {
+        "data": {
+            "id": "Package",
+            "source": null,
+            "target": null
+        }
+    },
+...
+</code>
 <h1>Scope</h1>
 <p>The project will output files that can be used with any http server and with Wyam.</p>
+
 	</section>
                 
             </div>           

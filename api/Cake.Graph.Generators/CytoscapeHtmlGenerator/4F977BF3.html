@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="/Cake.Graph/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.Graph/assets/img/favicon.ico" type="image/x-icon">
-        <title>Cake.Graph - API - GraphSettingsExtensions.SetNodeSetsPath(GraphSettings, string) Method</title>
+        <title>Cake.Graph - API - CytoscapeHtmlGenerator.CytoscapeHtmlGenerator(IGraphTemplateManager) Constructor</title>
         <link href="/Cake.Graph/assets/css/mermaid.css" rel="stylesheet">
         <link href="/Cake.Graph/assets/css/highlight.css" rel="stylesheet">
         <link href="/Cake.Graph/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
@@ -135,15 +135,18 @@
                     <ul class="sidebar-menu">
                         
 			<li class="header">Namespace</li>
-		<li><a href="/Cake.Graph/api/Cake.Graph">Cake<wbr>.Graph</a></li>
+		<li><a href="/Cake.Graph/api/Cake.Graph.Generators">Cake<wbr>.Graph<wbr>.Generators</a></li>
 		<li class="header">Type</li>
-		<li><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions">Graph<wbr>Settings<wbr>Extensions</a></li>
+		<li><a href="/Cake.Graph/api/Cake.Graph.Generators/CytoscapeHtmlGenerator">Cytoscape<wbr>Html<wbr>Generator</a></li>
 		<li role="separator" class="divider"></li>
+			<li class="header">Constructors</li>
+				<li class="selected"><a href="/Cake.Graph/api/Cake.Graph.Generators/CytoscapeHtmlGenerator/4F977BF3">Cytoscape<wbr>Html<wbr>Generator<wbr>(<wbr>I<wbr>Graph<wbr>Template<wbr>Manager)<wbr></a></li>
+				<li><a href="/Cake.Graph/api/Cake.Graph.Generators/CytoscapeHtmlGenerator/F22C5B81">Cytoscape<wbr>Html<wbr>Generator<wbr>()<wbr></a></li>
+			<li class="header">Property Members</li>
+				<li><a href="/Cake.Graph/api/Cake.Graph.Generators/CytoscapeHtmlGenerator/49AD5893">CytoscapeJsSource</a></li>
+				<li><a href="/Cake.Graph/api/Cake.Graph.Generators/CytoscapeHtmlGenerator/C3380506">Extension</a></li>
 			<li class="header">Method Members</li>
-				<li class="selected"><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions/C9946ACF">SetNodeSetsPath<wbr>(GraphSettings, <wbr>string)<wbr></a></li>
-				<li><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions/21D14AA0">SetOutputPath<wbr>(GraphSettings, <wbr>string)<wbr></a></li>
-				<li><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions/4E671E90">WithCustomGenerator<wbr>(GraphSettings, <wbr>ITaskGraphGenerator)<wbr></a></li>
-				<li><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions/BDBEAC5C">WithMermaidGenerator<wbr>(GraphSettings)<wbr></a></li>
+				<li><a href="/Cake.Graph/api/Cake.Graph.Generators/CytoscapeHtmlGenerator/CEC7270E">Serialize<wbr>(ICakeContext, <wbr>ICakeTaskInfo, <wbr>IReadOnlyList<wbr>&lt;<wbr>I<wbr>Cake<wbr>Task<wbr>Info&gt;<wbr>)<wbr></a></li>
 
 
                     </ul>
@@ -157,15 +160,15 @@
 
 
 <section class="content-header">
-			<h3><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions">Graph<wbr>Settings<wbr>Extensions</a>.</h3>
-	<h1>SetNodeSetsPath<wbr>(GraphSettings, <wbr>string)<wbr> <small>Method</small></h1>
+			<h3><a href="/Cake.Graph/api/Cake.Graph.Generators/CytoscapeHtmlGenerator">Cytoscape<wbr>Html<wbr>Generator</a>.</h3>
+	<h1>Cytoscape<wbr>Html<wbr>Generator<wbr>(<wbr>I<wbr>Graph<wbr>Template<wbr>Manager)<wbr> <small>Constructor</small></h1>
 </section>
 <section class="content">
 	
 	
 		<h1 id="Summary">Summary</h1>
 	<div class="lead">
-    Set the directory to put the .json files which describe each task. OutputPath will be prepended
+    CytoscapeHtmlGenerator
     </div>
 
 		<div class="panel panel-default">
@@ -173,17 +176,17 @@
 				<dl class="dl-horizontal">	
 						
 						<dt>Namespace</dt>
-						<dd><a href="/Cake.Graph/api/Cake.Graph">Cake<wbr>.Graph</a></dd>
+						<dd><a href="/Cake.Graph/api/Cake.Graph.Generators">Cake<wbr>.Graph<wbr>.Generators</a></dd>
 					
 						<dt>Containing Type</dt>
-						<dd><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions">Graph<wbr>Settings<wbr>Extensions</a></dd>		
+						<dd><a href="/Cake.Graph/api/Cake.Graph.Generators/CytoscapeHtmlGenerator">Cytoscape<wbr>Html<wbr>Generator</a></dd>		
 					
 				</dl>
   			</div>
 		</div>
 
 	<h1 id="Syntax">Syntax</h1>
-	<pre><code>public static GraphSettings SetNodeSetsPath(this GraphSettings settings, string nodeSetsPath)</code></pre>
+	<pre><code>public CytoscapeHtmlGenerator(IGraphTemplateManager graphTemplateManager)</code></pre>
 
 
 
@@ -201,13 +204,8 @@
 					</tr>
 				</thead>
 					<tbody><tr>
-						<td>settings</td>
-						<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettings">GraphSettings</a></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>nodeSetsPath</td>
-						<td>string</td>
+						<td>graphTemplateManager</td>
+						<td><a href="/Cake.Graph/api/Cake.Graph.Templates/IGraphTemplateManager">I<wbr>Graph<wbr>Template<wbr>Manager</a></td>
 						<td></td>
 					</tr>
 			</tbody></table>
@@ -225,7 +223,7 @@
 					</tr>
 				</thead>
 				<tbody><tr>
-					<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettings">GraphSettings</a></td>
+					<td>void</td>
 					<td></td>
 				</tr>
 			</tbody></table>

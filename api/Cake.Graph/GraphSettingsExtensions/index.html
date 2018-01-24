@@ -141,6 +141,7 @@
 				<li><a href="/Cake.Graph/api/Cake.Graph/GraphRunner">GraphRunner</a></li>
 				<li><a href="/Cake.Graph/api/Cake.Graph/GraphSettings">GraphSettings</a></li>
 				<li class="selected"><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions">Graph<wbr>Settings<wbr>Extensions</a></li>
+				<li><a href="/Cake.Graph/api/Cake.Graph/GraphTemplate_1">GraphTemplate<wbr>&lt;T&gt;<wbr></a></li>
 				<li><a href="/Cake.Graph/api/Cake.Graph/Node">Node</a></li>
 
 
@@ -222,21 +223,11 @@ class Type type-node
 							</tr>
 						</thead>
 							<tbody><tr>
-								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions/C9946ACF">SetNodeSetsPath<wbr>(GraphSettings, <wbr>string)<wbr></a></td>
-								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettings">GraphSettings</a></td>
-								<td>
-									<div>
-    Set the directory to put the .json files which describe each task. OutputPath will be prepended
-    </div>
-											<div><small><em>static</em></small></div>
-								</td>
-							</tr>
-							<tr>
 								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions/21D14AA0">SetOutputPath<wbr>(GraphSettings, <wbr>string)<wbr></a></td>
 								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettings">GraphSettings</a></td>
 								<td>
 									<div>
-    Root path for deploying all other files
+    Root path for deploying all files
     </div>
 											<div><small><em>static</em></small></div>
 								</td>
@@ -252,11 +243,41 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
+								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions/E35EE857">With<wbr>Cytoscape<wbr>Generator<wbr>(GraphSettings)<wbr></a></td>
+								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettings">GraphSettings</a></td>
+								<td>
+									<div>
+    Use a generator which outputs in cytoscape syntax
+    </div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions/97F95970">With<wbr>Cytoscape<wbr>Html<wbr>Generator<wbr>(GraphSettings)<wbr></a></td>
+								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettings">GraphSettings</a></td>
+								<td>
+									<div>
+    Use a generator which outputs separate files with mermaid graphs
+    </div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
 								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions/BDBEAC5C">WithMermaidGenerator<wbr>(GraphSettings)<wbr></a></td>
 								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettings">GraphSettings</a></td>
 								<td>
 									<div>
     Use a generator which outputs in mermaid syntax
+    </div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions/2F02AEF1">With<wbr>Mermaid<wbr>Html<wbr>Generator<wbr>(GraphSettings)<wbr></a></td>
+								<td><a href="/Cake.Graph/api/Cake.Graph/GraphSettings">GraphSettings</a></td>
+								<td>
+									<div>
+    Use a generator which outputs separate files with mermaid graphs
     </div>
 											<div><small><em>static</em></small></div>
 								</td>
