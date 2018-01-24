@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Cake.Core;
 using Cake.Graph.Generators;
 using Shouldly;
@@ -29,7 +30,8 @@ namespace Cake.Graph.Tests
             var mockContext = TestHelpers.GetMockCakeContext();
             ITaskGraphGenerator graphGenerator = (ITaskGraphGenerator)Activator.CreateInstance(generatorType);
             var result = graphGenerator.Serialize(mockContext.Object, taskC, tasks);
-            result.ShouldMatch(expectedResult);
+            Assert.Matches(expectedResult, result);
+            //result.ShouldMatch(expectedResult);
         }
     }
 }
