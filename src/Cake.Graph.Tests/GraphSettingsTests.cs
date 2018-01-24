@@ -1,6 +1,6 @@
 ﻿using Cake.Graph.Generators;
 using Moq;
-using Ploeh.AutoFixture;
+using AutoFixture;
 using Shouldly;
 using Xunit;
 
