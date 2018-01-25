@@ -1,4 +1,6 @@
-﻿using Ploeh.AutoFixture;
+﻿using Cake.Graph.Generators;
+using Moq;
+using AutoFixture;
 using Shouldly;
 using Xunit;
 
@@ -6,25 +8,7 @@ namespace Cake.Graph.Tests
 {
     public class GraphSettingsTests
     {
-        private IFixture autofixture = new Fixture();
-
-        [Theory]
-        [InlineData(true)]
-        [InlineData(false)]
-        public void UseWyam_Sets_IsWyam_Property(bool value)
-        {
-            var settings = new GraphSettings();
-            settings.UseWyam(value);
-            settings.IsWyam.ShouldBe(value);
-        }
-
-        [Fact]
-        public void UseWyam_Sets_IsWyam_True_By_Default_Property()
-        {
-            var settings = new GraphSettings();
-            settings.UseWyam();
-            settings.IsWyam.ShouldBe(true);
-        }
+        private readonly IFixture autofixture = new Fixture();
 
         [Fact]
         public void SetOutputPath_Sets_OutputPath_Property()
@@ -36,66 +20,44 @@ namespace Cake.Graph.Tests
         }
 
         [Fact]
-        public void SetNodeSetsPath_Sets_NodeSetsPathh_Property()
+        public void WithMermaidGenerator_Sets_Generator_Property()
         {
             var settings = new GraphSettings();
-            var randomString = autofixture.Create<string>();
-            settings.SetNodeSetsPath(randomString);
-            settings.NodeSetsPath.ShouldBe(randomString);
+            settings.WithMermaidGenerator();
+            settings.Generator.ShouldBeOfType<MermaidGraphGenerator>();
         }
 
         [Fact]
-        public void SetMainPageName_Sets_MainPageName_Property()
+        public void WithMermaidHtmlGenerator_Sets_Generator_Property()
         {
             var settings = new GraphSettings();
-            var randomString = autofixture.Create<string>();
-            settings.SetMainPageName(randomString);
-            settings.MainPageName.ShouldBe(randomString);
+            settings.WithMermaidHtmlGenerator();
+            settings.Generator.ShouldBeOfType<MermaidHtmlGenerator>();
         }
 
         [Fact]
-        public void SetCssPath_Sets_CssPath_Property()
+        public void WithCytoscapeGenerator_Sets_Generator_Property()
         {
             var settings = new GraphSettings();
-            var randomString = autofixture.Create<string>();
-            settings.SetCssPath(randomString);
-            settings.CssPath.ShouldBe(randomString);
+            settings.WithCytoscapeGenerator();
+            settings.Generator.ShouldBeOfType<CytoscapeGraphGenerator>();
         }
 
         [Fact]
-        public void SetCytoscapeJsPath_Sets_CytoscapeJsPath_Property()
+        public void WithCytoscapeHtmlGenerator_Sets_Generator_Property()
         {
             var settings = new GraphSettings();
-            var randomString = autofixture.Create<string>();
-            settings.SetCytoscapeJsPath(randomString);
-            settings.CytoscapeJsPath.ShouldBe(randomString);
+            settings.WithCytoscapeHtmlGenerator();
+            settings.Generator.ShouldBeOfType<CytoscapeHtmlGenerator>();
         }
 
         [Fact]
-        public void SetJsPath_Sets_JsPath_Property()
+        public void WithCustomGenerator_Sets_Generator_Property()
         {
             var settings = new GraphSettings();
-            var randomString = autofixture.Create<string>();
-            settings.SetJsPath(randomString);
-            settings.JsPath.ShouldBe(randomString);
-        }
-
-        [Fact]
-        public void SetJQueryPath_Sets_JQueryPath_Property()
-        {
-            var settings = new GraphSettings();
-            var randomString = autofixture.Create<string>();
-            settings.SetJQueryPath(randomString);
-            settings.JQueryPath.ShouldBe(randomString);
-        }
-
-        [Fact]
-        public void SetTaskListFileName_Sets_TaskListFileName_Property()
-        {
-            var settings = new GraphSettings();
-            var randomString = autofixture.Create<string>();
-            settings.SetTaskListFileName(randomString);
-            settings.TaskListFileName.ShouldBe(randomString);
+            var generator = new Mock<ITaskGraphGenerator>();
+            settings.WithCustomGenerator(generator.Object);
+            settings.Generator.ShouldBe(generator.Object);
         }
     }
 }

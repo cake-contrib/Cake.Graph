@@ -44,7 +44,7 @@ namespace Cake.Graph
             /// <param name="id"></param>
             public NodeData(string id)
             {
-                this.Id = id;
+                Id = id;
             }
 
             /// <summary>

@@ -26,10 +26,6 @@ The purpose of this project is to provide a means of easily viewing build tasks 
 
 Next steps for the project
 
-- Add more unit tests
-- Add to Cake.Recipe
-- Show selected Task description on the graph page
-- Allow the graph to scale based on number of dependencies/complexity
-- Add a different view which displays a list (as opposed to graph) of tasks in the order cake would run them
+- Show selected Task description on the graph pages
 
 Any other ideas/contributions are welcome.

@@ -32,8 +32,8 @@
     <DocumentationFile>bin\Cake.Graph.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Cake.Core, Version=0.23.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.Core.0.23.0\lib\net46\Cake.Core.dll</HintPath>
+    <Reference Include="Cake.Core, Version=0.25.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Cake.Core.0.25.0\lib\net46\Cake.Core.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -46,6 +46,10 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
     </Reference>
@@ -72,35 +76,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Generators\CakeTaskExtensions.cs" />
+    <Compile Include="Generators\CytoscapeGraphGenerator.cs" />
+    <Compile Include="Generators\CytoscapeHtmlGenerator.cs" />
+    <Compile Include="Generators\MermaidHtmlGenerator.cs" />
+    <Compile Include="Templates\GraphTemplateRepository.cs" />
+    <Compile Include="Templates\IGraphTemplateManager.cs" />
+    <Compile Include="Templates\IGraphTemplateRepository.cs" />
+    <Compile Include="Models\GraphHtmlModel.cs" />
+    <Compile Include="GraphTemplate.cs" />
+    <Compile Include="Templates\GraphTemplateManager.cs" />
+    <Compile Include="Generators\TaskGraphGeneratorHelpers.cs" />
     <Compile Include="GraphAliases.cs" />
-    <Compile Include="GraphConstants.cs" />
     <Compile Include="GraphSettings.cs" />
     <Compile Include="GraphSettingsExtensions.cs" />
-    <Compile Include="GraphTemplate.cs" />
+    <Compile Include="Generators\ITaskGraphGenerator.cs" />
+    <Compile Include="Generators\MermaidGraphGenerator.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="GraphRunner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SolutionInfo.cs" />
+    <Compile Include="Templates\TemplateTypes.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Content\web.config" />
-    <EmbeddedResource Include="Content\Wyam\tasks.cshtml" />
+    <EmbeddedResource Include="Content\mermaid.cshtml" />
+    <EmbeddedResource Include="Content\cytoscape.cshtml" />
     <None Include="packages.config" />
-    <None Include="Scripts\jquery-3.1.1.min.map" />
-    <None Include="Scripts\jquery-3.1.1.slim.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Content\tasks.css" />
-    <EmbeddedResource Include="Scripts\task-graph.js.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Scripts\cytoscape.js" />
-    <Content Include="Scripts\jquery-3.1.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.1.1.js" />
-    <EmbeddedResource Include="Scripts\jquery-3.1.1.min.js" />
-    <Content Include="Scripts\jquery-3.1.1.slim.js" />
-    <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
-    <EmbeddedResource Include="Content\tasks.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
