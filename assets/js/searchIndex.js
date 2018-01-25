@@ -34,70 +34,6 @@ var searchModule = function() {
 
     a({
         id:0,
-        title:"CakeTaskExtensions",
-        content:"CakeTaskExtensions",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:1,
-        title:"GraphTemplate",
-        content:"GraphTemplate",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:2,
-        title:"GraphAliases",
-        content:"GraphAliases",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:3,
-        title:"MermaidHtmlGenerator",
-        content:"MermaidHtmlGenerator",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:4,
-        title:"MermaidGraphGenerator",
-        content:"MermaidGraphGenerator",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:5,
-        title:"GraphSettingsExtensions",
-        content:"GraphSettingsExtensions",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:6,
-        title:"CytoscapeGraphGenerator",
-        content:"CytoscapeGraphGenerator",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:7,
-        title:"IGraphTemplateManager",
-        content:"IGraphTemplateManager",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:8,
         title:"IGraphTemplateRepository",
         content:"IGraphTemplateRepository",
         description:'',
@@ -105,55 +41,7 @@ var searchModule = function() {
     });
 
     a({
-        id:9,
-        title:"CytoscapeHtmlGenerator",
-        content:"CytoscapeHtmlGenerator",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:10,
-        title:"GraphRunner",
-        content:"GraphRunner",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:11,
-        title:"TemplateTypes",
-        content:"TemplateTypes",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:12,
-        title:"GraphSettings",
-        content:"GraphSettings",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:13,
-        title:"GraphTemplateManager",
-        content:"GraphTemplateManager",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:14,
-        title:"GraphTemplateRepository",
-        content:"GraphTemplateRepository",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:15,
+        id:1,
         title:"TaskGraphGeneratorHelpers",
         content:"TaskGraphGeneratorHelpers",
         description:'',
@@ -161,7 +49,79 @@ var searchModule = function() {
     });
 
     a({
-        id:16,
+        id:2,
+        title:"GraphRunner",
+        content:"GraphRunner",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:3,
+        title:"GraphTemplateManager",
+        content:"GraphTemplateManager",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:4,
+        title:"GraphSettings",
+        content:"GraphSettings",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:5,
+        title:"GraphTemplate",
+        content:"GraphTemplate",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:6,
+        title:"GraphHtmlModel",
+        content:"GraphHtmlModel",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:7,
+        title:"MermaidGraphGenerator",
+        content:"MermaidGraphGenerator",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:8,
+        title:"CytoscapeGraphGenerator",
+        content:"CytoscapeGraphGenerator",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:9,
+        title:"MermaidHtmlGenerator",
+        content:"MermaidHtmlGenerator",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:10,
+        title:"CakeTaskExtensions",
+        content:"CakeTaskExtensions",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:11,
         title:"ITaskGraphGenerator",
         content:"ITaskGraphGenerator",
         description:'',
@@ -169,15 +129,7 @@ var searchModule = function() {
     });
 
     a({
-        id:17,
-        title:"Node NodeData",
-        content:"Node NodeData",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:18,
+        id:12,
         title:"Node",
         content:"Node",
         description:'',
@@ -185,100 +137,64 @@ var searchModule = function() {
     });
 
     a({
+        id:13,
+        title:"Node NodeData",
+        content:"Node NodeData",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:14,
+        title:"CytoscapeHtmlGenerator",
+        content:"CytoscapeHtmlGenerator",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:15,
+        title:"GraphAliases",
+        content:"GraphAliases",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:16,
+        title:"TemplateTypes",
+        content:"TemplateTypes",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:17,
+        title:"GraphTemplateRepository",
+        content:"GraphTemplateRepository",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:18,
+        title:"IGraphTemplateManager",
+        content:"IGraphTemplateManager",
+        description:'',
+        tags:''
+    });
+
+    a({
         id:19,
-        title:"GraphHtmlModel",
-        content:"GraphHtmlModel",
+        title:"GraphSettingsExtensions",
+        content:"GraphSettingsExtensions",
         description:'',
         tags:''
     });
 
     y({
-        url:'/Cake.Graph/api/Cake.Graph.Generators/CakeTaskExtensions',
-        title:"CakeTaskExtensions",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Graph/api/Cake.Graph/GraphTemplate_1',
-        title:"GraphTemplate<T>",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Graph/api/Cake.Graph/GraphAliases',
-        title:"GraphAliases",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Graph/api/Cake.Graph.Generators/MermaidHtmlGenerator',
-        title:"MermaidHtmlGenerator",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Graph/api/Cake.Graph.Generators/MermaidGraphGenerator',
-        title:"MermaidGraphGenerator",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions',
-        title:"GraphSettingsExtensions",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Graph/api/Cake.Graph.Generators/CytoscapeGraphGenerator',
-        title:"CytoscapeGraphGenerator",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Graph/api/Cake.Graph.Templates/IGraphTemplateManager',
-        title:"IGraphTemplateManager",
-        description:""
-    });
-
-    y({
         url:'/Cake.Graph/api/Cake.Graph.Templates/IGraphTemplateRepository',
         title:"IGraphTemplateRepository",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Graph/api/Cake.Graph.Generators/CytoscapeHtmlGenerator',
-        title:"CytoscapeHtmlGenerator",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Graph/api/Cake.Graph/GraphRunner',
-        title:"GraphRunner",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Graph/api/Cake.Graph.Templates/TemplateTypes',
-        title:"TemplateTypes",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Graph/api/Cake.Graph/GraphSettings',
-        title:"GraphSettings",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Graph/api/Cake.Graph.Templates/GraphTemplateManager',
-        title:"GraphTemplateManager",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Graph/api/Cake.Graph.Templates/GraphTemplateRepository',
-        title:"GraphTemplateRepository",
         description:""
     });
 
@@ -289,14 +205,62 @@ var searchModule = function() {
     });
 
     y({
-        url:'/Cake.Graph/api/Cake.Graph.Generators/ITaskGraphGenerator',
-        title:"ITaskGraphGenerator",
+        url:'/Cake.Graph/api/Cake.Graph/GraphRunner',
+        title:"GraphRunner",
         description:""
     });
 
     y({
-        url:'/Cake.Graph/api/Cake.Graph/NodeData',
-        title:"Node.NodeData",
+        url:'/Cake.Graph/api/Cake.Graph.Templates/GraphTemplateManager',
+        title:"GraphTemplateManager",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Graph/api/Cake.Graph/GraphSettings',
+        title:"GraphSettings",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Graph/api/Cake.Graph/GraphTemplate_1',
+        title:"GraphTemplate<T>",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Graph/api/Cake.Graph.Models/GraphHtmlModel',
+        title:"GraphHtmlModel",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Graph/api/Cake.Graph.Generators/MermaidGraphGenerator',
+        title:"MermaidGraphGenerator",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Graph/api/Cake.Graph.Generators/CytoscapeGraphGenerator',
+        title:"CytoscapeGraphGenerator",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Graph/api/Cake.Graph.Generators/MermaidHtmlGenerator',
+        title:"MermaidHtmlGenerator",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Graph/api/Cake.Graph.Generators/CakeTaskExtensions',
+        title:"CakeTaskExtensions",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Graph/api/Cake.Graph.Generators/ITaskGraphGenerator',
+        title:"ITaskGraphGenerator",
         description:""
     });
 
@@ -307,8 +271,44 @@ var searchModule = function() {
     });
 
     y({
-        url:'/Cake.Graph/api/Cake.Graph.Models/GraphHtmlModel',
-        title:"GraphHtmlModel",
+        url:'/Cake.Graph/api/Cake.Graph/NodeData',
+        title:"Node.NodeData",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Graph/api/Cake.Graph.Generators/CytoscapeHtmlGenerator',
+        title:"CytoscapeHtmlGenerator",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Graph/api/Cake.Graph/GraphAliases',
+        title:"GraphAliases",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Graph/api/Cake.Graph.Templates/TemplateTypes',
+        title:"TemplateTypes",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Graph/api/Cake.Graph.Templates/GraphTemplateRepository',
+        title:"GraphTemplateRepository",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Graph/api/Cake.Graph.Templates/IGraphTemplateManager',
+        title:"IGraphTemplateManager",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Graph/api/Cake.Graph/GraphSettingsExtensions',
+        title:"GraphSettingsExtensions",
         description:""
     });
 
