@@ -53,7 +53,7 @@ namespace Cake.Graph
         }
 
         /// <summary>
-        /// Use a generator which outputs separate files with mermaid graphs
+        /// Use a generator which outputs separate files with cytoscape graphs
         /// </summary>
         /// <param name="settings"></param>
         /// <returns></returns>
@@ -62,6 +62,19 @@ namespace Cake.Graph
             settings.Generator = new CytoscapeHtmlGenerator();
             return settings;
         }
+
+        /// <summary>
+        /// Use a generator which outputs separate files for wyam with cytoscape graphs
+        /// </summary>
+        /// <param name="settings"></param>
+        /// <returns></returns>
+        public static GraphSettings WithCytoscapeWyamGenerator(this GraphSettings settings)
+        {
+            settings.Generator = new CytoscapeWyamGenerator();
+            return settings;
+        }
+
+
 
         /// <summary>
         /// Use a custom generator

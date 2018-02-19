@@ -35,22 +35,24 @@ namespace Cake.Graph.Generators
         public string CytoscapeJsSource => "https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.2.8/cytoscape.min.js";
 
         /// <summary>
-        /// The file extension to use for this type of graph file
+        /// 
         /// </summary>
-        public string Extension => "html";
+        protected string extension = "html";
+
+        /// <inheritdoc />
+        public string Extension => extension;
 
         /// <summary>
-        /// Converts the task to a graph and outputs the string for displaying
+        /// Which template to use
         /// </summary>
-        /// <param name="context"></param>
-        /// <param name="task"></param>
-        /// <param name="tasks"></param>
-        /// <returns></returns>
+        protected TemplateTypes templateType = TemplateTypes.Cytoscape;
+
+        /// <inheritdoc />
         public string Serialize(ICakeContext context, ICakeTaskInfo task, IReadOnlyList<ICakeTaskInfo> tasks)
         {
             var graph = graphGenerator.Serialize(context, task, tasks);
             var model = new GraphHtmlModel(task.Name, CytoscapeJsSource, graph);
-            var html = graphTemplateManager.ParseTemplate(TemplateTypes.Cytoscape, model);
+            var html = graphTemplateManager.ParseTemplate(templateType, model);
             return html;
         }
     }

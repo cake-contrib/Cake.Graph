@@ -12,6 +12,10 @@ namespace Cake.Graph.Templates
         /// <summary>
         /// Mermaid template
         /// </summary>
-        Mermaid
+        Mermaid,
+        /// <summary>
+        /// Cytoscape wyam template
+        /// </summary>
+        CytoscapeWyam
     }
 }

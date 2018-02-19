@@ -52,6 +52,14 @@ namespace Cake.Graph.Tests
         }
 
         [Fact]
+        public void WithCytoscapeWyamGenerator_Sets_Generator_Property()
+        {
+            var settings = new GraphSettings();
+            settings.WithCytoscapeWyamGenerator();
+            settings.Generator.ShouldBeOfType<CytoscapeWyamGenerator>();
+        }
+
+        [Fact]
         public void WithCustomGenerator_Sets_Generator_Property()
         {
             var settings = new GraphSettings();
