@@ -79,6 +79,7 @@
     <Compile Include="Generators\CakeTaskExtensions.cs" />
     <Compile Include="Generators\CytoscapeGraphGenerator.cs" />
     <Compile Include="Generators\CytoscapeHtmlGenerator.cs" />
+    <Compile Include="Generators\CytoscapeWyamGenerator.cs" />
     <Compile Include="Generators\MermaidHtmlGenerator.cs" />
     <Compile Include="Templates\GraphTemplateRepository.cs" />
     <Compile Include="Templates\IGraphTemplateManager.cs" />
@@ -101,6 +102,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Content\mermaid.cshtml" />
     <EmbeddedResource Include="Content\cytoscape.cshtml" />
+    <EmbeddedResource Include="Content\cytoscapewyam.cshtml" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

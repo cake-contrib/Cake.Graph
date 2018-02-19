@@ -1,0 +1,46 @@
+﻿@using Cake.Graph
+@inherits GraphTemplate<Cake.Graph.Models.GraphHtmlModel>
+<div>
+    <div id="task-graph" style="min-height: 600px; height: 100%; width: 100%;"></div>
+    <script src="@Model.JsSource"></script>
+    <script>
+    function initialiseGraph() {
+            var cy = cytoscape({
+                container: document.getElementById("task-graph"),
+                elements: @Raw(Model.Graph),
+                layout: {
+                    name: "breadthfirst",
+                    directed: true,
+                    padding: 10
+                },
+                style: cytoscape.stylesheet()
+                    .selector("node")
+                    .css({
+                        // ReSharper disable once InvalidValue
+                        'content': "data(id)",
+                        'text-valign': "center",
+                        'color': "white",
+                        'text-outline-width': 2,
+                        'text-outline-color': "black",
+                        'background-color': "black",
+                        'font-size': "36px",
+                        'height': "50px",
+                        'width': "50px"
+                    })
+                    .selector("edge")
+                    .css({
+                        'curve-style': "bezier",
+                        'source-arrow-shape': "triangle",
+                        'control-point-distance': 0
+                    }),
+                userZoomingEnabled: false,
+                userPanningEnabled: false,
+                boxSelectionEnabled: false
+            });
+        }
+
+        window.onload = function() {
+            initialiseGraph();
+        }
+    </script>
+</div>
