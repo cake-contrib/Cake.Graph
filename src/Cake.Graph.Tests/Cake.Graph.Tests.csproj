@@ -55,7 +55,6 @@
   <ItemGroup>
     <EmbeddedResource Include="Data\index.cshtml" />
     <None Include="app.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Cake.Graph\Cake.Graph.csproj" />
