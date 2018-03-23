@@ -14,6 +14,9 @@
     <tags>Cake Script Build Graph Nodes Dependencies Tasks</tags>
   </metadata>
   <files>
-    <file src="*.dll" target="lib\net45" />
+    <file src="net46\Cake.Graph.dll" target="lib\net46" />
+    <file src="net46\Cake.Graph.pdb" target="lib\net46" />
+    <file src="netstandard2.0\Cake.Graph.dll" target="lib/netstandard2.0" /> 
+    <file src="netstandard2.0\Cake.Graph.pdb" target="lib/netstandard2.0" />
   </files>
 </package>
