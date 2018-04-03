@@ -14,7 +14,7 @@ namespace Cake.Graph.Tests
             {
                 { TemplateTypes.Cytoscape, "Cake.Graph.Tests.Data.index.cshtml" }
             });
-
+            
         [Fact]
         public void Manager_Parses_Razor_Template()
         {
