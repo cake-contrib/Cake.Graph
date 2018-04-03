@@ -14,8 +14,7 @@ namespace Cake.Graph.Tests
             {
                 { TemplateTypes.Cytoscape, "Cake.Graph.Tests.Data.index.cshtml" }
             });
-
-        /* GraphTemplateManagerTests.cs(26,29): error CS0103: The name 'GraphTemplateRepositoryTests' does not exist in the current context [C:\SourceCode\Cake.Graph\src\Cake.Graph.Tests\Cake.Graph.Tests.csproj]
+            
         [Fact]
         public void Manager_Parses_Razor_Template()
         {
@@ -25,6 +24,6 @@ namespace Cake.Graph.Tests
             result = graphTemplateManager.ParseTemplate(TemplateTypes.Cytoscape, test);
 
             result.ShouldBe(GraphTemplateRepositoryTests.TestFileContent.Replace("@Model", test));
-        }*/
+        }
     }
 }
