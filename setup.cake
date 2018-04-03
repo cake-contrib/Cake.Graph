@@ -22,4 +22,4 @@ ToolSettings.SetToolSettings(context: Context,
                             testCoverageExcludeByFile: "*/*Designer.cs;*/*.g.cs;*/*.g.i.cs");
 
 #break
-Build.Run();
+Build.RunDotNetCore();
