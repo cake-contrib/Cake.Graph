@@ -22,7 +22,7 @@
   </PropertyGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='net46'">
     <PackageReference Include="AutoFixture" version="4.0.1" />
-    <PackageReference Include="Cake.Core" version="0.28.0" />
+    <PackageReference Include="Cake.Core" version="0.28.0" PrivateAssets="All" />
     <PackageReference Include="Castle.Core" version="4.2.1" />
     <PackageReference Include="Microsoft.AspNet.Razor" version="3.2.3" />
     <PackageReference Include="Moq" version="4.8.1" />

@@ -27,7 +27,7 @@
     <EmbeddedResource Include="Content\cytoscapewyam.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Cake.Core" version="0.28.0" />
+    <PackageReference Include="Cake.Core" version="0.28.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.AspNet.Mvc" version="5.2.3" />
     <PackageReference Include="Microsoft.AspNet.Razor" version="3.2.3" />
     <PackageReference Include="Microsoft.AspNet.WebPages" version="3.2.3" />
