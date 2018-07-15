@@ -34,14 +34,14 @@ namespace Cake.Graph.Tests
         public static IReadOnlyList<ICakeTaskInfo> CreateTasksWithDependencies()
         {
             var tasks = new List<ICakeTaskInfo>();
-            var taskA = new ActionTask("A");
-            var taskB = new ActionTask("B");
-            var taskC = new ActionTask("C");
-            var taskD = new ActionTask("D");
+            var taskA = new CakeTask("A");
+            var taskB = new CakeTask("B");
+            var taskC = new CakeTask("C");
+            var taskD = new CakeTask("D");
 
-            taskB.AddDependency("A");
-            taskC.AddDependency("B");
-            taskD.AddDependency("A");
+            taskB.Dependencies.Add(new CakeTaskDependency("A", true));
+            taskC.Dependencies.Add(new CakeTaskDependency("B", true));
+            taskD.Dependencies.Add(new CakeTaskDependency("A", true));
 
             tasks.Add(taskA);
             tasks.Add(taskB);
