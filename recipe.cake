@@ -9,7 +9,8 @@ BuildParameters.SetParameters(context: Context,
                             title: "Cake.Graph",
                             repositoryOwner: "cake-contrib",
                             repositoryName: "Cake.Graph",
-                            appVeyorAccountName: "cakecontrib");
+                            appVeyorAccountName: "cakecontrib",
+                            shouldRunGitVersion: true);
 
 BuildParameters.PrintParameters(Context);
 
