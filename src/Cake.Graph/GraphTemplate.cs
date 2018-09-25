@@ -1,4 +1,7 @@
-using RazorEngine.Templating;
+//using RazorEngine.Templating;
+
+using System.Threading.Tasks;
+using RazorLight;
 
 namespace Cake.Graph
 {
@@ -7,14 +10,16 @@ namespace Cake.Graph
     /// Template for processing web files before saving
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class GraphTemplate<T> : TemplateBase<T>
+    public class GraphTemplate<T> : TemplatePage<T>
     {
         /// <summary>
         /// Model to use in Template
         /// </summary>
-        public new T Model
+        public new T Model => base.Model;
+
+        public override Task ExecuteAsync()
         {
-            get => base.Model;
+            return Task.CompletedTask;
         }
     }
 }

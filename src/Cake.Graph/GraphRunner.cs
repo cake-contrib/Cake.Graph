@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+using System.Threading.Tasks;
 using Cake.Core;
 using Cake.Core.Diagnostics;
 using LogLevel = Cake.Core.Diagnostics.LogLevel;
@@ -30,19 +32,19 @@ namespace Cake.Graph
         /// Generate the node set files and deploy the web content files
         /// </summary>
         /// <param name="configure"></param>
-        public GraphRunner Deploy(Action<GraphSettings> configure = null)
+        public async Task<GraphRunner> DeployAsync(Action<GraphSettings> configure = null)
         {
             var settings = new GraphSettings();
             configure?.Invoke(settings);
 
-            return Deploy(settings);
+            return await DeployAsync(settings);
         }
 
         /// <summary>
         /// Generate the node set files and deploy the web content files
         /// </summary>
         /// <param name="settings"></param>
-        public GraphRunner Deploy(GraphSettings settings)
+        public async Task<GraphRunner> DeployAsync(GraphSettings settings)
         {
             if (settings.Generator == null)
             {
@@ -50,20 +52,19 @@ namespace Cake.Graph
                 settings.WithMermaidGenerator();
             }
 
-            var output =
-                tasks.Select(
-                    x => new KeyValuePair<string, string>(x.Name, settings.Generator.Serialize(context, x, tasks)));
-
             context.Log.Write(Verbosity.Normal, LogLevel.Information, "Writing files");
             context.Log.Write(Verbosity.Diagnostic, LogLevel.Information, $"Ensuring node sets directory at {settings.OutputPath}");
+            
             if (!string.IsNullOrWhiteSpace(settings.OutputPath))
                 Directory.CreateDirectory(settings.OutputPath);
-
-            foreach (var task in output)
+            
+            foreach (var task in tasks)
             {
-                var filePath = Path.Combine(settings.OutputPath, $"{task.Key}.{settings.Generator.Extension}");
+                var value = await settings.Generator.SerializeAsync(context, task, tasks);
+                
+                var filePath = Path.Combine(settings.OutputPath, $"{task.Name}.{settings.Generator.Extension}");
                 using (var file = File.CreateText(filePath))
-                    file.Write(task.Value);
+                    file.Write(value);
             }
 
             return this;

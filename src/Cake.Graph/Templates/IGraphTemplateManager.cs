@@ -1,3 +1,5 @@
+using System.Threading.Tasks;
+
 namespace Cake.Graph.Templates
 {
     /// <summary>
@@ -12,6 +14,6 @@ namespace Cake.Graph.Templates
         /// <param name="model"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        string ParseTemplate<T>(TemplateTypes templateTypeKey, T model);
+        Task<string> ParseTemplateAsync<T>(TemplateTypes templateTypeKey, T model);
     }
 }
