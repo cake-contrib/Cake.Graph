@@ -43,6 +43,13 @@ namespace Cake.Graph
         /// <summary>
         /// Generate the node set files and deploy the web content files
         /// </summary>
+        /// <param name="configure"></param>
+        public GraphRunner Deploy(Action<GraphSettings> configure = null) =>
+            DeployAsync(configure).GetAwaiter().GetResult();
+        
+        /// <summary>
+        /// Generate the node set files and deploy the web content files
+        /// </summary>
         /// <param name="settings"></param>
         public async Task<GraphRunner> DeployAsync(GraphSettings settings)
         {
@@ -69,5 +76,11 @@ namespace Cake.Graph
 
             return this;
         }
+
+        /// <summary>
+        /// Generate the node set files and deploy the web content files
+        /// </summary>
+        /// <param name="settings"></param>
+        public GraphRunner Deploy(GraphSettings settings) => DeployAsync(settings).GetAwaiter().GetResult();
     }
 }
