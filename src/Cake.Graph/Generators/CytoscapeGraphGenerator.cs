@@ -19,12 +19,12 @@ namespace Cake.Graph.Generators
         /// <param name="task"></param>
         /// <param name="tasks"></param>
         /// <returns></returns>
-        public async Task<string> SerializeAsync(ICakeContext context, ICakeTaskInfo task, IReadOnlyList<ICakeTaskInfo> tasks)
+        public Task<string> SerializeAsync(ICakeContext context, ICakeTaskInfo task, IReadOnlyList<ICakeTaskInfo> tasks)
         {
             TaskGraphGeneratorHelpers.ValidateParameters(context, task, tasks);
 
             var nodes = GetTaskGraphNodes(context, task, tasks);
-            return JsonConvert.SerializeObject(nodes);
+            return Task.FromResult(JsonConvert.SerializeObject(nodes));
         }
 
         /// <summary>

@@ -63,7 +63,7 @@ namespace Cake.Graph.Templates
 
         private async Task<string> ParseAndCacheRazorTemplateAsync<T>(string templateName, string razorTemplate, T model)
         {
-            var htmlFileOutput = await Engine.CompileRenderAsync(templateName, razorTemplate, model);// RenderTemplateAsync(razorTemplate, model); Razor.RunCompile(razorTemplate, templateName, typeof(T), model);
+            var htmlFileOutput = await Engine.CompileRenderAsync(templateName, razorTemplate, model);
             return htmlFileOutput;
         }
     }
