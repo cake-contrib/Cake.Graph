@@ -1,1 +1,0 @@
-#tool nuget:?package=JetBrains.ReSharper.CommandLineTools&version=2018.1.2
