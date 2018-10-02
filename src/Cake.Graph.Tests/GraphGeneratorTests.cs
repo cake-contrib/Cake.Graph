@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Cake.Core;
 using Cake.Graph.Generators;
 using Shouldly;
@@ -25,11 +26,11 @@ namespace Cake.Graph.Tests
         [InlineData(typeof(MermaidHtmlGenerator), TestHelpers.TaskCMermaidPattern)]
         [InlineData(typeof(CytoscapeHtmlGenerator), TestHelpers.TaskCCytoscapePattern)]
         [InlineData(typeof(CytoscapeWyamGenerator), TestHelpers.TaskCCytoscapePattern)]
-        public void Serializes_Tasks_With_Dependencies_Correctly(Type generatorType, string expectedResult)
+        public async Task Serializes_Tasks_With_Dependencies_Correctly(Type generatorType, string expectedResult)
         {
             var mockContext = TestHelpers.GetMockCakeContext();
             var graphGenerator = (ITaskGraphGenerator)Activator.CreateInstance(generatorType);
-            var result = graphGenerator.Serialize(mockContext.Object, taskC, tasks);
+            var result = await graphGenerator.SerializeAsync(mockContext.Object, taskC, tasks);
             result.ShouldMatch(expectedResult);
         }
 

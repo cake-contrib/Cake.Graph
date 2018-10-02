@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Cake.Core;
 using Cake.Graph.Models;
 using Cake.Graph.Templates;
@@ -48,11 +49,11 @@ namespace Cake.Graph.Generators
         protected TemplateTypes templateType = TemplateTypes.Cytoscape;
 
         /// <inheritdoc />
-        public string Serialize(ICakeContext context, ICakeTaskInfo task, IReadOnlyList<ICakeTaskInfo> tasks)
+        public async Task<string> SerializeAsync(ICakeContext context, ICakeTaskInfo task, IReadOnlyList<ICakeTaskInfo> tasks)
         {
-            var graph = graphGenerator.Serialize(context, task, tasks);
+            var graph = await graphGenerator.SerializeAsync(context, task, tasks);
             var model = new GraphHtmlModel(task.Name, CytoscapeJsSource, graph);
-            var html = graphTemplateManager.ParseTemplate(templateType, model);
+            var html = await graphTemplateManager.ParseTemplateAsync(templateType, model);
             return html;
         }
     }

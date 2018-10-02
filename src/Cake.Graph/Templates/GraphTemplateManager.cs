@@ -1,7 +1,6 @@
 using System;
-using RazorEngine;
-using RazorEngine.Configuration;
-using RazorEngine.Templating;
+using System.Threading.Tasks;
+using RazorLight;
 
 namespace Cake.Graph.Templates
 {
@@ -10,17 +9,8 @@ namespace Cake.Graph.Templates
     /// </summary>
     public class GraphTemplateManager : IGraphTemplateManager
     {
-        private static readonly ITemplateServiceConfiguration razorTemplateServiceConfig = new TemplateServiceConfiguration
-        {
-            DisableTempFileLocking = true, // loads the files in-memory (gives the templates full-trust permissions)
-            CachingProvider = new DefaultCachingProvider(t => { }) //disables the warnings
-        };
-
-        static GraphTemplateManager()
-        {
-            Engine.Razor = RazorEngineService.Create(razorTemplateServiceConfig);
-        }
-
+        private RazorLightEngine Engine { get; }
+        
         private readonly IGraphTemplateRepository graphTemplateRepository;
 
         /// <summary>
@@ -35,6 +25,10 @@ namespace Cake.Graph.Templates
         public GraphTemplateManager(IGraphTemplateRepository graphTemplateRepository)
         {
             this.graphTemplateRepository = graphTemplateRepository ?? throw new ArgumentNullException(nameof(graphTemplateRepository));
+
+            Engine = new RazorLightEngineBuilder()
+                .UseMemoryCachingProvider()
+                .Build();
         }
 
         /// <summary>
@@ -45,35 +39,32 @@ namespace Cake.Graph.Templates
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public string ParseTemplate<T>(TemplateTypes templateTypeKey, T model)
+        public async Task<string> ParseTemplateAsync<T>(TemplateTypes templateTypeKey, T model)
         {
             if (!graphTemplateRepository.TemplateResourcePaths.TryGetValue(templateTypeKey, out var templateResourcePath))
                 throw new ArgumentOutOfRangeException(nameof(templateTypeKey));
 
-            var result = ParseRazorTemplateFromResource(templateResourcePath, model);
+            var result = await ParseRazorTemplateFromResourceAsync(templateResourcePath, model);
             return result;
         }
 
-        private string ParseRazorTemplateFromResource<T>(string resourcePath, T model)
+        private async Task<string> ParseRazorTemplateFromResourceAsync<T>(string resourcePath, T model)
         {
-            var cached = Engine.Razor.IsTemplateCached(resourcePath, typeof(T));
-            if (cached)
-                return ParseCachedRazorTemplate(resourcePath, model);
+            if (Engine.TemplateCache.Contains(resourcePath))
+            {
+                var template = Engine.TemplateCache.RetrieveTemplate(resourcePath).Template.TemplatePageFactory.Invoke();
+                return await Engine.RenderTemplateAsync(template, model);
+            }
 
             var razorTemplate = graphTemplateRepository.ReadResourceToString(resourcePath);
-            var htmlFileOutput = ParseAndCacheRazorTemplate(resourcePath, razorTemplate, model);
+            var htmlFileOutput = await ParseAndCacheRazorTemplateAsync(resourcePath, razorTemplate, model);
             return htmlFileOutput;
         }
 
-        private string ParseAndCacheRazorTemplate<T>(string templateName, string razorTemplate, T model)
+        private async Task<string> ParseAndCacheRazorTemplateAsync<T>(string templateName, string razorTemplate, T model)
         {
-            var htmlFileOutput = Engine.Razor.RunCompile(razorTemplate, templateName, typeof(T), model);
+            var htmlFileOutput = await Engine.CompileRenderAsync(templateName, razorTemplate, model);
             return htmlFileOutput;
-        }
-
-        private string ParseCachedRazorTemplate<T>(string resourcePath, T model)
-        {
-            return Engine.Razor.Run(resourcePath, typeof(T), model);
         }
     }
 }
