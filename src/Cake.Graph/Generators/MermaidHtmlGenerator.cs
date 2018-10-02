@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Cake.Core;
 using Cake.Graph.Models;
 using Cake.Graph.Templates;
@@ -45,11 +46,11 @@ namespace Cake.Graph.Generators
         /// <param name="task"></param>
         /// <param name="tasks"></param>
         /// <returns></returns>
-        public string Serialize(ICakeContext context, ICakeTaskInfo task, IReadOnlyList<ICakeTaskInfo> tasks)
+        public async Task<string> SerializeAsync(ICakeContext context, ICakeTaskInfo task, IReadOnlyList<ICakeTaskInfo> tasks)
         {
-            var graph = graphGenerator.Serialize(context, task, tasks);
+            var graph = await graphGenerator.SerializeAsync(context, task, tasks);
             var model = new GraphHtmlModel(task.Name, MermaidJsSource, graph);
-            var html = graphTemplateManager.ParseTemplate(TemplateTypes.Mermaid, model);
+            var html = await graphTemplateManager.ParseTemplateAsync(TemplateTypes.Mermaid, model);
             return html;
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Cake.Core;
 using Cake.Core.Diagnostics;
 using Cake.Graph.Generators;
@@ -24,9 +25,9 @@ namespace Cake.Graph.Tests
             mockTaskGraphGenerator
                 .Setup(x => x.Extension)
                 .Returns("test");
-            mockTaskGraphGenerator.Setup(x => x.Serialize(It.IsAny<ICakeContext>(), It.IsAny<ICakeTaskInfo>(),
+            mockTaskGraphGenerator.Setup(x => x.SerializeAsync(It.IsAny<ICakeContext>(), It.IsAny<ICakeTaskInfo>(),
                     It.IsAny<IReadOnlyList<ICakeTaskInfo>>()))
-                .Returns((ICakeContext context, ICakeTaskInfo task, IReadOnlyList<ICakeTaskInfo> tasks) => "");
+                .Returns((ICakeContext context, ICakeTaskInfo task, IReadOnlyList<ICakeTaskInfo> tasks) => Task.FromResult(""));
 
             return mockTaskGraphGenerator.Object;
         }

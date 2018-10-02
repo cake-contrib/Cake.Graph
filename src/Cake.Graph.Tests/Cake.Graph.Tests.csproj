@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="..\packages\xunit.core.2.3.1\build\xunit.core.props" Condition="Exists('..\packages\xunit.core.2.3.1\build\xunit.core.props')" />
   <PropertyGroup>
-    <TargetFramework>net46</TargetFramework>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <PreserveCompilationContext>true</PreserveCompilationContext>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net46|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netcoreapp2.0|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -13,48 +13,34 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net46|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netcoreapp2.0|AnyCPU'">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <ItemGroup Condition="'$(TargetFramework)'=='net46'">
-    <PackageReference Include="AutoFixture" version="4.0.1" />
-    <PackageReference Include="Cake.Core" version="0.28.0" PrivateAssets="All" />
-    <PackageReference Include="Castle.Core" version="4.2.1" />
-    <PackageReference Include="Microsoft.AspNet.Razor" version="3.2.3" />
-    <PackageReference Include="Moq" version="4.8.1" />
-    <PackageReference Include="RazorEngine" version="3.10.0" />
-    <PackageReference Include="Shouldly" version="3.0.0" />
-    <PackageReference Include="System.Threading.Tasks.Extensions" version="4.3.0" />
-    <PackageReference Include="System.ValueTuple" version="4.4.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" version="15.6.2" />
+  <ItemGroup>
+    <PackageReference Include="AutoFixture" Version="4.0.1" />
+    <PackageReference Include="Cake.Core" Version="0.30.0" PrivateAssets="All" />
+    <PackageReference Include="Castle.Core" Version="4.2.1" />
+    <PackageReference Include="Microsoft.AspNet.Razor" Version="3.2.3" />
+    <PackageReference Include="Moq" Version="4.8.1" />
+    <PackageReference Include="RazorEngine" Version="3.10.0" />
+    <PackageReference Include="Shouldly" Version="3.0.0" />
+    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.3.0" />
+    <PackageReference Include="System.ValueTuple" Version="4.4.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.6.2" />
     <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
-    <PackageReference Include="xunit" version="2.3.1" />
-    <PackageReference Include="xunit.runner.console" version="2.3.1" />
-    <PackageReference Include="xunit.runner.visualstudio" version="2.3.1" />
-    <PackageReference Include="xunit.abstractions" version="2.0.1" />
-    <PackageReference Include="xunit.analyzers" version="0.8.0" />
-    <PackageReference Include="xunit.assert" version="2.3.1" />
-    <PackageReference Include="xunit.core" version="2.3.1" />
-    <PackageReference Include="xunit.extensibility.core" version="2.3.1" />
-    <PackageReference Include="xunit.extensibility.execution" version="2.3.1" />
-    <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.IO.Compression.FileSystem" />
-    <Reference Include="System.Numerics" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
+    <PackageReference Include="xunit" Version="2.3.1" />
+    <PackageReference Include="xunit.runner.console" Version="2.3.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
+    <PackageReference Include="xunit.abstractions" Version="2.0.1" />
+    <PackageReference Include="xunit.analyzers" Version="0.8.0" />
+    <PackageReference Include="xunit.assert" Version="2.3.1" />
+    <PackageReference Include="xunit.core" Version="2.3.1" />
+    <PackageReference Include="xunit.extensibility.core" Version="2.3.1" />
+    <PackageReference Include="xunit.extensibility.execution" Version="2.3.1" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Data\index.cshtml" />

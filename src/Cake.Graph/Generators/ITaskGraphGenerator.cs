@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Cake.Core;
 
 namespace Cake.Graph.Generators
@@ -15,7 +16,7 @@ namespace Cake.Graph.Generators
         /// <param name="task"></param>
         /// <param name="tasks"></param>
         /// <returns></returns>
-        string Serialize(ICakeContext context, ICakeTaskInfo task, IReadOnlyList<ICakeTaskInfo> tasks);
+        Task<string> SerializeAsync(ICakeContext context, ICakeTaskInfo task, IReadOnlyList<ICakeTaskInfo> tasks);
         /// <summary>
         /// The file extension to use for this type of graph file
         /// </summary>

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using Cake.Core;
 using Cake.Core.Diagnostics;
 
@@ -24,7 +25,7 @@ namespace Cake.Graph.Generators
         /// <param name="task"></param>
         /// <param name="tasks"></param>
         /// <returns></returns>
-        public string Serialize(ICakeContext context, ICakeTaskInfo task, IReadOnlyList<ICakeTaskInfo> tasks)
+        public async Task<string> SerializeAsync(ICakeContext context, ICakeTaskInfo task, IReadOnlyList<ICakeTaskInfo> tasks)
         {
             TaskGraphGeneratorHelpers.ValidateParameters(context, task, tasks);
 

@@ -18,7 +18,7 @@ namespace Cake.Graph.Tests
             var tasks = TestHelpers.CreateTasksWithDependencies();
 
             var emptyGenerator = TestHelpers.GetEmptyTaskGraphGenerator();
-            cakeContext.Object.Graph(tasks).Deploy(s => s
+            cakeContext.Object.Graph(tasks).DeployAsync(s => s
                 .WithCustomGenerator(emptyGenerator)
                 .SetOutputPath(outputPath)
             );
