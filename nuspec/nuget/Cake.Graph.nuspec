@@ -5,7 +5,7 @@
     <title>Cake.Graph</title>
     <authors>Warren Bates</authors>
     <owners>Warren Bates</owners>
-    <licenseUrl>https://github.com/wozzo/Cake.Graph/blob/master/LICENSE</licenseUrl>
+    <license type="expression">MIT</license>
     <projectUrl>https://github.com/wozzo/Cake.Graph</projectUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/cake-contrib/graphics/png/cake-contrib-medium.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
