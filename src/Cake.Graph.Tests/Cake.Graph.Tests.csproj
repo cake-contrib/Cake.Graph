@@ -22,7 +22,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="AutoFixture" Version="4.0.1" />
-    <PackageReference Include="Cake.Core" Version="0.30.0" PrivateAssets="All" />
+    <PackageReference Include="Cake.Core" Version="0.33.0" PrivateAssets="All" />
     <PackageReference Include="Castle.Core" Version="4.2.1" />
     <PackageReference Include="Microsoft.AspNet.Razor" Version="3.2.3" />
     <PackageReference Include="Moq" Version="4.8.1" />
