@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -28,7 +28,7 @@
     <EmbeddedResource Include="Content\cytoscapewyam.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Cake.Core" Version="0.30.0" PrivateAssets="All" />
+    <PackageReference Include="Cake.Core" Version="0.33.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.3" />
     <PackageReference Include="Microsoft.AspNet.Razor" Version="3.2.3" />
     <PackageReference Include="Microsoft.AspNet.WebPages" Version="3.2.3" />
