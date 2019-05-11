@@ -15,13 +15,7 @@ BuildParameters.SetParameters(context: Context,
 
 BuildParameters.PrintParameters(Context);
 
-ToolSettings.SetToolSettings(context: Context,
-                            dupFinderExcludePattern: new string[] {
-                                BuildParameters.RootDirectoryPath + "/src/Cake.Graph.Tests/*.cs"
-                                },
-                            testCoverageFilter: "+[*]* -[xunit.*]* -[Cake.Core]* -[Cake.Testing]* -[*.Tests]* -[Moq*]* -[AutoFixture*]* ",
-                            testCoverageExcludeByAttribute: "*.ExcludeFromCodeCoverage*",
-                            testCoverageExcludeByFile: "*/*Designer.cs;*/*.g.cs;*/*.g.i.cs");
+ToolSettings.SetToolSettings(context: Context);
 
 #break
 Build.RunDotNetCore();
