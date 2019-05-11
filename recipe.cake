@@ -10,7 +10,8 @@ BuildParameters.SetParameters(context: Context,
                             repositoryOwner: "cake-contrib",
                             repositoryName: "Cake.Graph",
                             appVeyorAccountName: "cakecontrib",
-                            shouldRunGitVersion: true);
+                            shouldRunGitVersion: DirectoryExists(".git"), // This would allow building even without using a git repository
+                            shouldRunDotNetCorePack: true);
 
 BuildParameters.PrintParameters(Context);
 

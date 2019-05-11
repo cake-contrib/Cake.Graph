@@ -2,10 +2,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <PreserveCompilationContext>true</PreserveCompilationContext>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
+
+  <PropertyGroup>
+    <Authors>Warren Bates</Authors>
+    <Copyright>Copyright © 2017-$([System.DateTime]::Now.Year) - Warren Bates</Copyright>
+    <Description>An alias for Cake to help with displaying Task dependencies</Description>
+    <PackageIconUrl>https://cdn.jsdelivr.net/gh/cake-contrib/graphics/png/cake-contrib-medium.png</PackageIconUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/wozzo/Cake.Graph</PackageProjectUrl>
+    <PackageTags>Cake;Script;Build;Graph;Nodes;Dependencies;Tasks</PackageTags>
+    <RepositoryUrl>$(PackageProjectUrl).git</RepositoryUrl>
+  </PropertyGroup>
+
   <ItemGroup>
     <EmbeddedResource Include="Content/*.cshtml" />
   </ItemGroup>
