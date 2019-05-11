@@ -180,7 +180,7 @@ if(-Not $SkipToolPackageRestore.IsPresent) {
     }
 
     Write-Verbose -Message "Restoring tools from NuGet..."
-    
+
     $NuGetOutput = Invoke-Expression "& $env:NUGET_EXE_INVOCATION install -ExcludeVersion -OutputDirectory `"$TOOLS_DIR`""
 
     if ($LASTEXITCODE -ne 0) {
